@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -95,8 +96,29 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\male-gender-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\female-gender-icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\DefaultBoyWeightGrowthChart.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\DefaultGirlWeightGrowthChart.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\DefaultBoyHeightGrowthChart.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\DefaultGirlHeightGrowthChart.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

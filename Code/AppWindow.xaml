@@ -37,10 +37,22 @@
         <Image HorizontalAlignment="Left" Margin="25" VerticalAlignment="Top" Stretch="UniformToFill" />
 
         <Label Content="Płeć dziecka:" Grid.Row="0" Grid.Column="1" Width="200" Margin="45,25,0,0" />
-        <CheckBox Name="IsBoyCheckBox" Content="chłopiec" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"
-                  VerticalAlignment="Top" Margin="45,55,0,0" />
-        <CheckBox Name="IsGirlCheckBox" Content="dziewczynka" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"
-                  VerticalAlignment="Top" Margin="45,75,0,0" />
+         <Canvas Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="45,50,0,0" VerticalAlignment="Top" Width="220">
+            <RadioButton>
+                <WrapPanel>
+                    <Label Content="dziewczynka" VerticalAlignment="Top" FontSize="16" Height="25" Padding="0" />
+                    <Image Source="../Resources/female-gender-icon.png" VerticalAlignment="Top" Height="15" Width="15" Margin="5, 2,0,0"/>
+                </WrapPanel>
+            </RadioButton>
+        </Canvas>
+        <Canvas Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="45,75,0,0" VerticalAlignment="Top" Width="220">
+            <RadioButton>
+                <WrapPanel>
+                    <Label Content="chłopiec" VerticalAlignment="Top" FontSize="16" Height="25" Padding="0" />
+                    <Image Source="../Resources/male-gender-icon.png" VerticalAlignment="Top" Height="15" Width="15" Margin="5, 2,0,0"/>
+                </WrapPanel>
+            </RadioButton>
+        </Canvas>
         <Label Content="Wiek dziecka:" Grid.Row="0" Grid.Column="1" Width="200" Margin="45,100,0,0" />
         <TextBox Grid.Row="0" Grid.Column="1" Margin="45,130,0,0" x:Name="AgeTextBox" />
         <TextBlock Name="AgeWaterMark" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"
@@ -58,7 +70,7 @@
             </TextBlock.Style>
         </TextBlock>
         <Label Content="Wzrost dziecka [cm]:" Grid.Row="0" Grid.Column="1" Width="200" Margin="45,155,0,0" />
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="45,185,0,0" x:Name="HeightTextBox"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="45,185,0,0" x:Name="HeightTextBox" />
         <TextBlock Name="HeightWaterMark" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"
                    VerticalAlignment="Top" Margin="50,189,0,0"
                    Height="25" Text="Podaj wzrost dziecka" FontSize="14" Foreground="gray" IsHitTestVisible="False">
@@ -74,7 +86,7 @@
             </TextBlock.Style>
         </TextBlock>
         <Label Content="Waga dziecka [kg]:" Grid.Row="0" Grid.Column="1" Width="200" Margin="45,210,0,0" />
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="45,240,0,0" Name="WeightTextBox"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="45,240,0,0" Name="WeightTextBox" />
         <TextBlock Name="WeightWaterMark" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"
                    VerticalAlignment="Top" Margin="50,243,0,0"
                    Height="25" Text="Podaj wagę dziecka" FontSize="14" Foreground="gray" IsHitTestVisible="False">
