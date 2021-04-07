@@ -70,6 +70,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\Chart.cs" />
+    <Compile Include="Code\Child.cs" />
+    <Compile Include="Code\Estimator.cs" />
+    <Compile Include="Code\FileDataValidator.cs" />
+    <Compile Include="Code\FileDataLoader.cs" />
+    <Compile Include="Code\GraphChart.cs" />
+    <Compile Include="Code\UserDataValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

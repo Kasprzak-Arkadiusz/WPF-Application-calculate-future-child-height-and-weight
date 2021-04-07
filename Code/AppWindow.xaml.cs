@@ -1,15 +1,59 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace ProjektIndywidualny.Code
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+
+        private void EstimateBtn_Clicked(object sender, RoutedEventArgs e)
+        {
+            string age = AgeTextBox.Text;
+            string height = HeightTextBox.Text;
+            string weight = WeightTextBox.Text;
+
+            if (UserDataValidator.CheckIfFieldsAreNotEmpty(age, height, weight))
+            {
+                MessageBox.Show("Wartości pól:\n"
+                                + "wiek: " + age + "\n"
+                                + "wzrost: " + height + "\n"
+                                + "waga: " + weight);
+            }
+        }
+
+        private void BoyRadioButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            GirlRadioButton.IsChecked = false;
+
+            if (HeightFileTextBox.Text == "DefaultGirlHeightGrowthChart.txt")
+            {
+                HeightFileTextBox.Text = "DefaultBoyHeightGrowthChart.txt";
+            }
+
+            if (WeightFileTextBox.Text == "DefaultGirlWeightGrowthChart.txt")
+            {
+                WeightFileTextBox.Text = "DefaultBoyWeightGrowthChart.txt";
+            }
+        }
+
+        private void GirlRadioButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            BoyRadioButton.IsChecked = false;
+
+            if (HeightFileTextBox.Text == "DefaultBoyHeightGrowthChart.txt")
+            {
+                HeightFileTextBox.Text = "DefaultGirlHeightGrowthChart.txt";
+            }
+
+            if (WeightFileTextBox.Text == "DefaultBoyWeightGrowthChart.txt")
+            {
+                WeightFileTextBox.Text = "DefaultGirlWeightGrowthChart.txt";
+            }
         }
     }
 }

@@ -9,19 +9,23 @@
         MinWidth="1024"
         Height="768"
         Width="1024"
+        VerticalAlignment="Top"
+        HorizontalAlignment="Left"
         FontSize="16"
         FontFamily="Century Gothic">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="Height" Value="30" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Width" Value="250" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Width" Value="250" />
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="Height" Value="25" />
-            <Setter Property="Width" Value="220" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Width" Value="250" />
+            <Setter Property="FontSize" Value="14" />
         </Style>
     </Window.Resources>
     <Grid Background="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}">
@@ -34,90 +38,121 @@
             <ColumnDefinition Width="220*" />
         </Grid.ColumnDefinitions>
 
-        <Image HorizontalAlignment="Left" Margin="25" VerticalAlignment="Top" Stretch="UniformToFill" />
+        <Image Margin="25" VerticalAlignment="Top" Stretch="UniformToFill" />
 
-        <Label Content="Płeć dziecka:" Grid.Row="0" Grid.Column="1" Width="200" Margin="45,25,0,0" />
-         <Canvas Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="45,50,0,0" VerticalAlignment="Top" Width="220">
-            <RadioButton>
-                <WrapPanel>
-                    <Label Content="dziewczynka" VerticalAlignment="Top" FontSize="16" Height="25" Padding="0" />
-                    <Image Source="../Resources/female-gender-icon.png" VerticalAlignment="Top" Height="15" Width="15" Margin="5, 2,0,0"/>
-                </WrapPanel>
-            </RadioButton>
+        <Canvas Grid.Row="0" Grid.Column="1" Margin="25,25,25,100">
+            <TextBlock>
+                <Run Foreground="Red">*</Run>
+                <Run Foreground="Black">Płeć dziecka</Run>
+            </TextBlock>
+            <Canvas Canvas.Top="25">
+                <RadioButton Name="GirlRadioButton" Click="GirlRadioButton_Clicked">
+                    <WrapPanel>
+                        <Label Content="dziewczynka" Width="100" Height="25" Padding="0" />
+                        <Image Source="../Resources/female-gender-icon.png" VerticalAlignment="Top" Height="15"
+                               Width="15"
+                               Margin="5, 2,0,0" />
+                    </WrapPanel>
+                </RadioButton>
+            </Canvas>
+            <Canvas Canvas.Top="50">
+                <RadioButton Name="BoyRadioButton" Click="BoyRadioButton_Clicked">
+                    <WrapPanel>
+                        <Label Content="chłopiec" Width="70" Height="25" Padding="0" />
+                        <Image Source="../Resources/male-gender-icon.png" VerticalAlignment="Top" Height="15"
+                               Width="15"
+                               Margin="5, 2,0,0" />
+                    </WrapPanel>
+                </RadioButton>
+            </Canvas>
+            <TextBlock>
+                <Run Foreground="Red">*</Run>
+                <Run Foreground="Black">Wiek dziecka</Run>
+                <Canvas.Top>75</Canvas.Top>
+            </TextBlock>
+
+            <TextBox x:Name="AgeTextBox" Canvas.Top="105" />
+            <TextBlock x:Name="AgeWaterMark" Text="Podaj wiek dziecka" FontSize="14" Foreground="gray"
+                       IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="108">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=AgeTextBox}" Value="">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <TextBlock>
+                <Run Foreground="Red">*</Run>
+                <Run Foreground="Black">Wzrost dziecka</Run>
+                <Canvas.Top>130</Canvas.Top>
+            </TextBlock>
+            <TextBox x:Name="HeightTextBox" Canvas.Top="160" />
+            <TextBlock x:Name="HeightWaterMark" Text="Podaj wzrost dziecka" FontSize="14" Foreground="gray"
+                       IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="164">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=HeightTextBox}" Value="">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <TextBlock>
+                <Run Foreground="Red">*</Run>
+                <Run Foreground="Black">Waga dziecka</Run>
+                <Canvas.Top>185</Canvas.Top>
+            </TextBlock>
+            <TextBox x:Name="WeightTextBox" Canvas.Top="215" />
+            <TextBlock x:Name="WeightWaterMark" Text="Podaj wagę dziecka" FontSize="14" Foreground="gray"
+                       IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="218">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=WeightTextBox}" Value="">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <Label Content="Plik z danymi do siatki&#xA;centylowej wagi:"
+                   Height="50" Canvas.Top="240" />
+            <TextBox x:Name="WeightFileTextBox" Text="DefaultBoyWeightGrowthChart.txt" Canvas.Top="290" />
+            <Label Content="Plik z danymi do siatki&#xA;centylowej wzrostu:"
+                   Height="50" Canvas.Top="315" />
+            <TextBox x:Name="HeightFileTextBox" Text="DefaultBoyHeightGrowthChart.txt" Canvas.Top="365" />
+            <Label Content="* wymagane" Canvas.Top="395" Foreground="Red" />
         </Canvas>
-        <Canvas Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="45,75,0,0" VerticalAlignment="Top" Width="220">
-            <RadioButton>
-                <WrapPanel>
-                    <Label Content="chłopiec" VerticalAlignment="Top" FontSize="16" Height="25" Padding="0" />
-                    <Image Source="../Resources/male-gender-icon.png" VerticalAlignment="Top" Height="15" Width="15" Margin="5, 2,0,0"/>
-                </WrapPanel>
-            </RadioButton>
+
+        <Canvas Margin="50,25" Grid.Row="1" Grid.Column="0">
+            <Label Content="Przewidywany wzrost dziecka [cm]:"
+                   VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" />
+            <TextBox x:Name="EstHeightTextBox" Width="60"
+                VerticalAlignment="Top" HorizontalAlignment="Left" Height="30"
+                TextAlignment="Center" IsReadOnly="True" Canvas.Left="300" />
+            <Label Content="Przewidywana waga dziecka [kg]:"
+                VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Canvas.Top="50" />
+            <TextBox x:Name="EstWeightTextBox" Width="60"
+                HorizontalAlignment="Left" VerticalAlignment="Top" Height="30"
+                TextAlignment="Center" IsReadOnly="True" Canvas.Left="300" Canvas.Top="50" />
         </Canvas>
-        <Label Content="Wiek dziecka:" Grid.Row="0" Grid.Column="1" Width="200" Margin="45,100,0,0" />
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="45,130,0,0" x:Name="AgeTextBox" />
-        <TextBlock Name="AgeWaterMark" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"
-                   Margin="50,133,0,0"
-                   Height="25" Text="Podaj wiek dziecka" FontSize="14" Foreground="gray" IsHitTestVisible="False">
-            <TextBlock.Style>
-                <Style TargetType="{x:Type TextBlock}">
-                    <Setter Property="Visibility" Value="Collapsed" />
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Text, ElementName=AgeTextBox}" Value="">
-                            <Setter Property="Visibility" Value="Visible" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
-        <Label Content="Wzrost dziecka [cm]:" Grid.Row="0" Grid.Column="1" Width="200" Margin="45,155,0,0" />
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="45,185,0,0" x:Name="HeightTextBox" />
-        <TextBlock Name="HeightWaterMark" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"
-                   VerticalAlignment="Top" Margin="50,189,0,0"
-                   Height="25" Text="Podaj wzrost dziecka" FontSize="14" Foreground="gray" IsHitTestVisible="False">
-            <TextBlock.Style>
-                <Style TargetType="{x:Type TextBlock}">
-                    <Setter Property="Visibility" Value="Collapsed" />
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Text, ElementName=HeightTextBox}" Value="">
-                            <Setter Property="Visibility" Value="Visible" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
-        <Label Content="Waga dziecka [kg]:" Grid.Row="0" Grid.Column="1" Width="200" Margin="45,210,0,0" />
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="45,240,0,0" Name="WeightTextBox" />
-        <TextBlock Name="WeightWaterMark" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"
-                   VerticalAlignment="Top" Margin="50,243,0,0"
-                   Height="25" Text="Podaj wagę dziecka" FontSize="14" Foreground="gray" IsHitTestVisible="False">
-            <TextBlock.Style>
-                <Style TargetType="{x:Type TextBlock}">
-                    <Setter Property="Visibility" Value="Collapsed" />
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Text, ElementName=WeightTextBox}" Value="">
-                            <Setter Property="Visibility" Value="Visible" />
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBlock.Style>
-        </TextBlock>
 
-        <Label Content="Przewidywany wzrost dziecka [cm]:" Grid.Row="1" Grid.Column="0" Margin="50,25,0,0" />
-        <TextBox Name="EstHeightTextBox" Grid.Row="1" Grid.Column="0" Margin="335,30,0,0" Width="60" FontSize="16"
-                 TextAlignment="Center" IsReadOnly="True" MaxLines="1" />
-        <Label Content="Przewidywana waga dziecka [kg]:" Grid.Row="1" Grid.Column="0" Margin="50,75,0,0" />
-        <TextBox Name="EstWeightTextBox" Grid.Row="1" Grid.Column="0" Margin="335,80,0,0" Width="60" FontSize="16"
-                 TextAlignment="Center" IsReadOnly="True" MaxLines="1" />
-
-        <Button Name="EstimateBtn" Content="Oszacuj wzrost i wagę dziecka" Grid.Row="1" Grid.Column="1"
-                HorizontalAlignment="Center" VerticalAlignment="Center" Width="220" Height="50"
-                FontSize="14">
+        <Button Name="EstimateBtn" Content="Oszacuj wzrost i wagę dziecka" Grid.Row="1" Grid.Column="1" Height="50" Margin="30,48,0,0" FontSize="14" HorizontalAlignment="Left" Width="250" VerticalAlignment="Top" Click="EstimateBtn_Clicked">
             <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF838383" Offset="1" />
                     <GradientStop Color="#FFE8E8E8" />
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+
     </Grid>
 </Window>
