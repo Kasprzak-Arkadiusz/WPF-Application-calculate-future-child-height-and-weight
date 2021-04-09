@@ -1,0 +1,38 @@
+﻿<Window x:Class="ProjektIndywidualny.Code.AlertWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Błąd"
+        Icon="../Resources/alert-icon.ico"
+        Height="180" Width="320"
+        MinHeight="180" MinWidth="320"
+        MaxHeight="180" MaxWidth="180"
+        VerticalAlignment="Top"
+        HorizontalAlignment="Left"
+        FontSize="16"
+        FontFamily="Century Gothic">
+    <Grid Background="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}" VerticalAlignment="Top"
+          HorizontalAlignment="Left" Margin="0,0,0,-1" Width="310">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="220" />
+        </Grid.ColumnDefinitions>
+        <Canvas Width="80" Height="80">
+            <Image VerticalAlignment="Top" Stretch="UniformToFill" Source="../Resources/alert-image.png" Width="80" />
+        </Canvas>
+        <Canvas Grid.Row="0" Grid.Column="1" Margin="0,10,20,10" Width="200">
+            <TextBlock Name="MessageTextBlock" Width="200" Height="80" TextWrapping="Wrap" Text="Tutaj powinna być informacja o błędzie. Jeśli widzisz tą wiadomość skontaktuj się z twórcą."
+                       FontSize="14" TextAlignment="Center" Canvas.Top="0" />
+        </Canvas>
+        <Button Name="OkButton" Content="OK" Grid.Row="1" Grid.Column="1" Height="20" Width="60"
+                Margin="120,0,40,30" FontSize="14" Click="OkButton_Clicked" />
+
+    </Grid>
+</Window>
