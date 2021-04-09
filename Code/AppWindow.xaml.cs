@@ -1,9 +1,8 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 
 namespace ProjektIndywidualny.Code
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         public MainWindow()
         {
@@ -17,13 +16,15 @@ namespace ProjektIndywidualny.Code
             string height = HeightTextBox.Text;
             string weight = WeightTextBox.Text;
 
-            if (UserDataValidator.CheckIfFieldsAreNotEmpty(age, height, weight))
+            if (!UserDataValidator.AreUserDataCorrect(age, height, weight, BoyRadioButton.IsChecked, GirlRadioButton.IsChecked))
             {
-                MessageBox.Show("Wartości pól:\n"
-                                + "wiek: " + age + "\n"
-                                + "wzrost: " + height + "\n"
-                                + "waga: " + weight);
+                return;
             }
+
+            MessageBox.Show("Wartości pól:\n"
+                            + "wiek: " + age + "\n"
+                            + "wzrost: " + height + "\n"
+                            + "waga: " + weight);
         }
 
         private void BoyRadioButton_Clicked(object sender, RoutedEventArgs e)
