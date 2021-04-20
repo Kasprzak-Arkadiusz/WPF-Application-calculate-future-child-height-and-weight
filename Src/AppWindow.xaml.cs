@@ -1,6 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
-namespace ProjektIndywidualny.Code
+namespace ProjektIndywidualny.Src
 {
     public partial class MainWindow
     {
@@ -9,14 +10,14 @@ namespace ProjektIndywidualny.Code
             InitializeComponent();
         }
 
-
         private void EstimateBtn_Clicked(object sender, RoutedEventArgs e)
         {
             string age = AgeTextBox.Text;
             string height = HeightTextBox.Text;
             string weight = WeightTextBox.Text;
 
-            if (!UserDataValidator.AreUserDataCorrect(age, height, weight, BoyRadioButton.IsChecked, GirlRadioButton.IsChecked))
+            if (!UserDataValidator.AreUserDataCorrect(age, height, weight, BoyRadioButton.IsChecked,
+                GirlRadioButton.IsChecked))
             {
                 return;
             }
@@ -25,9 +26,25 @@ namespace ProjektIndywidualny.Code
                             + "wiek: " + age + "\n"
                             + "wzrost: " + height + "\n"
                             + "waga: " + weight);
+
+            string weightFileName = WeightFileTextBox.Text;
+            GrowthChart growthChart = new GrowthChart();
+            Chart heightChart = growthChart.HeightChart;
+            string[] heightLabels = growthChart.HeightLabels;
+            Chart weightChart = growthChart.WeightChart;
+            string[] weightLabels = growthChart.WeightLabels;
+
+            try
+            {
+                FileDataLoader.LoadDefaultData(weightFileName, out heightChart, out weightLabels);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
 
-        private void BoyRadioButton_Clicked(object sender, RoutedEventArgs e)
+        /*private void BoyRadioButton_Clicked(object sender, RoutedEventArgs e)
         {
             GirlRadioButton.IsChecked = false;
 
@@ -55,6 +72,6 @@ namespace ProjektIndywidualny.Code
             {
                 WeightFileTextBox.Text = "DefaultGirlWeightGrowthChart.txt";
             }
-        }
+        }*/
     }
 }

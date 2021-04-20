@@ -1,9 +1,8 @@
-﻿namespace ProjektIndywidualny.Code
+﻿namespace ProjektIndywidualny.Src
 {
     public static class UserDataValidator
     {
-        private static readonly AlertWindow Alert = new AlertWindow();
-
+        private const string windowTitle = "Błędne dane";
         public static bool AreUserDataCorrect(string age, string height, string weight,
             bool? isBoyButtonChecked, bool? isGirlButtonChecked)
         {
@@ -32,20 +31,22 @@
 
         private static bool CheckIfFieldsAreFilled(string age, string height, string weight)
         {
+            AlertWindow alert = new AlertWindow();
+
             bool fieldsAreFilled = true;
             if (age == "")
             {
-                Alert.Show("Pole wiek jest wymagane.");
+                alert.Show(windowTitle,"Pole wiek jest wymagane.");
                 fieldsAreFilled = false;
             }
             else if (height == "")
             {
-                Alert.Show("Pole wzrost jest wymagane.");
+                alert.Show(windowTitle,"Pole wzrost jest wymagane.");
                 fieldsAreFilled = false;
             }
             else if (weight == "")
             {
-                Alert.Show("Pole waga jest wymagane.");
+                alert.Show(windowTitle,"Pole waga jest wymagane.");
                 fieldsAreFilled = false;
             }
 
@@ -56,7 +57,8 @@
         {
             if (isBoyButtonClicked == isGirlButtonClicked)
             {
-                Alert.Show("Płeć dziecka nie została wybrana.");
+                AlertWindow alert = new AlertWindow();
+                alert.Show(windowTitle,"Płeć dziecka nie została wybrana.");
                 return false;
             }
 
@@ -65,21 +67,23 @@
 
         private static bool CheckIfValuesAreCorrectDataTypes(string age, string height, string weight)
         {
+            AlertWindow alert = new AlertWindow();
+
             if (!int.TryParse(age, out _))
             {
-                Alert.Show("Podany wiek nie jest liczbą całkowitą.");
+                alert.Show(windowTitle,"Podany wiek nie jest liczbą całkowitą.");
                 return false;
             }
 
             if (!int.TryParse(height, out _))
             {
-                Alert.Show("Podany wzrost nie jest liczbą całkowitą.");
+                alert.Show(windowTitle,"Podany wzrost nie jest liczbą całkowitą.");
                 return false;
             }
 
             if (!int.TryParse(weight, out _))
             {
-                Alert.Show("Podana waga nie jest liczbą całkowitą.");
+                alert.Show(windowTitle,"Podana waga nie jest liczbą całkowitą.");
                 return false;
             }
 
@@ -88,11 +92,12 @@
 
         private static bool CheckIfAgeIsInRange(string age)
         {
+            AlertWindow alert = new AlertWindow();
             int numericAge = int.Parse(age);
 
             if (numericAge < 3 || numericAge > 17)
             {
-                Alert.Show("Wiek powinien być liczbą z zakresu od 3 do 17.");
+                alert.Show(windowTitle,"Wiek powinien być liczbą z zakresu od 3 do 17.");
                 return false;
             }
 

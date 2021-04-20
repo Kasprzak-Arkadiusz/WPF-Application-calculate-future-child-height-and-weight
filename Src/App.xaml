@@ -1,7 +1,7 @@
-﻿<Application x:Class="ProjektIndywidualny.Code.App"
+﻿<Application x:Class="ProjektIndywidualny.Src.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="Code/AppWindow.xaml">
+             StartupUri="Src/AppWindow.xaml">
     <Application.Resources>
          
     </Application.Resources>

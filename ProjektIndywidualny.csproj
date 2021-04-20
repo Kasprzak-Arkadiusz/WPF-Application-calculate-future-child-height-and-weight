@@ -52,38 +52,38 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="Code\App.xaml">
+    <ApplicationDefinition Include="Src\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Code\AlertWindow.xaml">
+    <Page Include="Src\AlertWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Code\AppWindow.xaml">
+    <Page Include="Src\AppWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Code\AlertWindow.xaml.cs">
+    <Compile Include="Src\AlertWindow.xaml.cs">
       <DependentUpon>AlertWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Code\App.xaml.cs">
+    <Compile Include="Src\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Code\AppWindow.xaml.cs">
+    <Compile Include="Src\AppWindow.xaml.cs">
       <DependentUpon>AppWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Code\Chart.cs" />
-    <Compile Include="Code\Child.cs" />
-    <Compile Include="Code\Estimator.cs" />
-    <Compile Include="Code\FileDataValidator.cs" />
-    <Compile Include="Code\FileDataLoader.cs" />
-    <Compile Include="Code\GraphChart.cs" />
-    <Compile Include="Code\UserDataValidator.cs" />
+    <Compile Include="Src\Chart.cs" />
+    <Compile Include="Src\Child.cs" />
+    <Compile Include="Src\Estimator.cs" />
+    <Compile Include="Src\FileDataValidator.cs" />
+    <Compile Include="Src\FileDataLoader.cs" />
+    <Compile Include="Src\GrowthChart.cs" />
+    <Compile Include="Src\UserDataValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -113,39 +113,48 @@
     <Folder Include="Tests\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\male-gender-icon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Resources\male-gender-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\female-gender-icon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Resources\female-gender-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\DefaultBoyWeightGrowthChart.txt" />
+    <EmbeddedResource Include="Data\DefaultBoyWeightGrowthChart.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\DefaultGirlWeightGrowthChart.txt" />
+    <EmbeddedResource Include="Data\DefaultGirlWeightGrowthChart.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\DefaultBoyHeightGrowthChart.txt" />
+    <EmbeddedResource Include="Data\DefaultBoyHeightGrowthChart.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\DefaultGirlHeightGrowthChart.txt" />
+    <EmbeddedResource Include="Data\DefaultGirlHeightGrowthChart.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\alert-icon.png" />
+    <Resource Include="Resources\alert-icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\alert-icon.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="Resources\alert-image.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\alert-image.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Content Include="bin\Debug\DefaultBoyHeightGrowthChart.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\DefaultGirlWeightGrowthChart.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\DefaultBoyWeightGrowthChart.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\DefaultGirlHeightGrowthChart.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

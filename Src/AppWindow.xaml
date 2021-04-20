@@ -1,4 +1,4 @@
-﻿<Window x:Class="ProjektIndywidualny.Code.MainWindow"
+﻿<Window x:Class="ProjektIndywidualny.Src.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -46,7 +46,7 @@
                 <Run Foreground="Black">Płeć dziecka</Run>
             </TextBlock>
             <Canvas Canvas.Top="25">
-                <RadioButton Name="GirlRadioButton" Click="GirlRadioButton_Clicked">
+                <RadioButton Name="GirlRadioButton" GroupName="SexChoice">
                     <WrapPanel>
                         <Label Content="dziewczynka" Width="100" Height="25" Padding="0" />
                         <Image Source="../Resources/female-gender-icon.png" VerticalAlignment="Top" Height="15"
@@ -56,7 +56,7 @@
                 </RadioButton>
             </Canvas>
             <Canvas Canvas.Top="50">
-                <RadioButton Name="BoyRadioButton" Click="BoyRadioButton_Clicked">
+                <RadioButton Name="BoyRadioButton" GroupName="SexChoice">
                     <WrapPanel>
                         <Label Content="chłopiec" Width="70" Height="25" Padding="0" />
                         <Image Source="../Resources/male-gender-icon.png" VerticalAlignment="Top" Height="15"

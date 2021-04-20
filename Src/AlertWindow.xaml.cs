@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace ProjektIndywidualny.Code
+namespace ProjektIndywidualny.Src
 {
     public partial class AlertWindow
     {
@@ -9,11 +9,11 @@ namespace ProjektIndywidualny.Code
             InitializeComponent();
         }
 
-        public void Show(string message)
+        public void Show(string windowTitle, string message)
         {
-            AlertWindow window = new AlertWindow();
-            window.MessageTextBlock.Text = message;
-            window.Show();
+            this.Title = windowTitle;
+            this.MessageTextBlock.Text = message;
+            this.Show();
         }
 
         private void OkButton_Clicked(object sender, RoutedEventArgs e)

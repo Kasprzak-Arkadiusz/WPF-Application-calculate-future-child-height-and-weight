@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace ProjektIndywidualny.Code
+namespace ProjektIndywidualny.Src
 {
     /// <summary>
     /// Interaction logic for App.xaml
