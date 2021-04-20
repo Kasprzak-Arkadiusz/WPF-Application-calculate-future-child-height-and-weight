@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace ProjektIndywidualny.Src
 {
@@ -19,6 +20,12 @@ namespace ProjektIndywidualny.Src
         private void OkButton_Clicked(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Deactivated(object sender, EventArgs e)
+        {
+            Window window = (Window)sender;
+            window.Topmost = true;
         }
     }
 }

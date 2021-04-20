@@ -22,56 +22,26 @@ namespace ProjektIndywidualny.Src
                 return;
             }
 
-            MessageBox.Show("Wartości pól:\n"
-                            + "wiek: " + age + "\n"
-                            + "wzrost: " + height + "\n"
-                            + "waga: " + weight);
-
             string weightFileName = WeightFileTextBox.Text;
+            string heightFileName = HeightFileTextBox.Text;
             GrowthChart growthChart = new GrowthChart();
             Chart heightChart = growthChart.HeightChart;
             string[] heightLabels = growthChart.HeightLabels;
             Chart weightChart = growthChart.WeightChart;
             string[] weightLabels = growthChart.WeightLabels;
 
+            AlertWindow alertBox = new AlertWindow();
             try
             {
-                FileDataLoader.LoadDefaultData(weightFileName, out heightChart, out weightLabels);
+                FileDataLoader.LoadDefaultData(weightFileName, out weightChart, out weightLabels);
+                FileDataValidator.CheckIfFileDataAreCorrect(ref weightChart);
+                FileDataLoader.LoadDefaultData(heightFileName, out heightChart, out heightLabels);
+                FileDataValidator.CheckIfFileDataAreCorrect(ref heightChart);
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message);
+                alertBox.Show("Błędne dane w pliku",exception.Message);
             }
         }
-
-        /*private void BoyRadioButton_Clicked(object sender, RoutedEventArgs e)
-        {
-            GirlRadioButton.IsChecked = false;
-
-            if (HeightFileTextBox.Text == "DefaultGirlHeightGrowthChart.txt")
-            {
-                HeightFileTextBox.Text = "DefaultBoyHeightGrowthChart.txt";
-            }
-
-            if (WeightFileTextBox.Text == "DefaultGirlWeightGrowthChart.txt")
-            {
-                WeightFileTextBox.Text = "DefaultBoyWeightGrowthChart.txt";
-            }
-        }
-
-        private void GirlRadioButton_Clicked(object sender, RoutedEventArgs e)
-        {
-            BoyRadioButton.IsChecked = false;
-
-            if (HeightFileTextBox.Text == "DefaultBoyHeightGrowthChart.txt")
-            {
-                HeightFileTextBox.Text = "DefaultGirlHeightGrowthChart.txt";
-            }
-
-            if (WeightFileTextBox.Text == "DefaultBoyWeightGrowthChart.txt")
-            {
-                WeightFileTextBox.Text = "DefaultGirlWeightGrowthChart.txt";
-            }
-        }*/
     }
 }

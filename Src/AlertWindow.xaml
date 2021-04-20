@@ -13,7 +13,8 @@
         VerticalAlignment="Top"
         HorizontalAlignment="Left"
         FontSize="16"
-        FontFamily="Century Gothic">
+        FontFamily="Century Gothic"
+        Deactivated="Window_Deactivated">
     <Grid Background="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}" VerticalAlignment="Top"
           HorizontalAlignment="Left" Margin="0,0,0,-1" Width="310">
         <Grid.RowDefinitions>
