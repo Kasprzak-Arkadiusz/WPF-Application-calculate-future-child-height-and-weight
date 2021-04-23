@@ -20,13 +20,19 @@ namespace ProjektIndywidualny.Src
                 throw new ArgumentException("Wartość parametru znajduje się powyżej najwyższego centylu.");
             }
 
-            int upperPlotIndex = 0;
-            int bottomPlotIndex = plots.GetLength(0) - 1;
+            Point indices = FindBottomAndUpperIndex(plots, currentParameter, curAgeIndex, estAgeIndex);
+            int curBottomIndex = indices.X;
+            int curUpperIndex = indices.Y;
 
-            //Szukanie wykresów pomiędzy którymi znajduje się dany punkt.
-            for (int i = 0; i < plots.GetLength(0); i++) { }
-
-            return 0;
+            if (curBottomIndex == curUpperIndex)
+            {
+                return plots[curBottomIndex, estAgeIndex].Y;
+            }
+            else
+            {
+                int difference = plots[curUpperIndex, curAgeIndex].Y - plots[curBottomIndex, curAgeIndex].Y;
+                return plots[curBottomIndex, estAgeIndex].Y + difference;
+            }
         }
 
         private static int FindIndexByAge(Point[,] plots, int age)
@@ -54,6 +60,38 @@ namespace ProjektIndywidualny.Src
             }
 
             throw new ArgumentException("W pliku brakuje danych dla wieku: " + age + " lat.");
+        }
+
+        private static Point FindBottomAndUpperIndex(Point[,] plots, int currentParameter, int curAgeIndex,
+            int estAgeIndex)
+        {
+            int curBottomIndex = 0;
+            int minBottomDistance = -int.MaxValue;
+            int curUpperIndex = 0;
+            int minUpperDistance = int.MaxValue;
+
+            for (int i = 0; i < plots.GetLength(0); i++)
+            {
+                int distance = plots[i, curAgeIndex].Y - currentParameter;
+                if (distance == 0)
+                {
+                    curBottomIndex = i;
+                    curUpperIndex = i;
+                    break;
+                }
+                else if (distance < 0 && (distance > minBottomDistance))
+                {
+                    minBottomDistance = distance;
+                    curBottomIndex = i;
+                }
+                else if (distance > 0 && (distance < minUpperDistance))
+                {
+                    minUpperDistance = distance;
+                    curUpperIndex = i;
+                }
+            }
+
+            return new Point(curBottomIndex, curUpperIndex);
         }
     }
 }

@@ -50,14 +50,19 @@ namespace ProjektIndywidualny.Src
                 return;
             }
 
-            try 
+            try
             {
                 child.EstimatedHeight =
                     Estimator.EstimateChildParameter(growthChart.HeightChart.Plots, child.CurrentHeight, child.Age, 18);
+                EstHeightTextBox.Text = child.EstimatedHeight.ToString();
                 child.EstimatedWeight =
-                    Estimator.EstimateChildParameter(growthChart.WeightChart.Plots, child.CurrentWeight, child.Age, 18); }
+                    Estimator.EstimateChildParameter(growthChart.WeightChart.Plots, child.CurrentWeight, child.Age, 18);
+                EstWeightTextBox.Text = child.EstimatedWeight.ToString();
+            }
             catch (ArgumentException e3)
             {
+                EstHeightTextBox.Text = "";
+                EstWeightTextBox.Text = "";
                 alertBox.Show("Podano błędne dane.", e3.Message);
                 return;
             }
