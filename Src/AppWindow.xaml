@@ -26,6 +26,7 @@
             <Setter Property="Height" Value="25" />
             <Setter Property="Width" Value="250" />
             <Setter Property="FontSize" Value="14" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
         </Style>
     </Window.Resources>
     <Grid Background="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}">
@@ -40,7 +41,7 @@
 
         <Image Margin="25" VerticalAlignment="Top" Stretch="UniformToFill" />
 
-        <Canvas Grid.Row="0" Grid.Column="1" Margin="25,25,25,100">
+        <Canvas Grid.Row="0" Grid.Column="1" Margin="25,24,25,0">
             <TextBlock>
                 <Run Foreground="Red">*</Run>
                 <Run Foreground="Black">Płeć dziecka</Run>
@@ -50,8 +51,7 @@
                     <WrapPanel>
                         <Label Content="dziewczynka" Width="100" Height="25" Padding="0" />
                         <Image Source="../Resources/female-gender-icon.png" VerticalAlignment="Top" Height="15"
-                               Width="15"
-                               Margin="5, 2,0,0" />
+                               Width="15" Margin="5, 2,0,0" />
                     </WrapPanel>
                 </RadioButton>
             </Canvas>
@@ -60,8 +60,7 @@
                     <WrapPanel>
                         <Label Content="chłopiec" Width="70" Height="25" Padding="0" />
                         <Image Source="../Resources/male-gender-icon.png" VerticalAlignment="Top" Height="15"
-                               Width="15"
-                               Margin="5, 2,0,0" />
+                               Width="15" Margin="5, 2,0,0" />
                     </WrapPanel>
                 </RadioButton>
             </Canvas>
@@ -72,7 +71,7 @@
             </TextBlock>
 
             <TextBox x:Name="AgeTextBox" Canvas.Top="105" />
-            <TextBlock x:Name="AgeWaterMark" Text="Podaj wiek dziecka" FontSize="14" Foreground="gray"
+            <TextBlock Text="Podaj wiek dziecka" FontSize="14" Foreground="gray"
                        IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="108">
                 <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
@@ -91,7 +90,7 @@
                 <Canvas.Top>130</Canvas.Top>
             </TextBlock>
             <TextBox x:Name="HeightTextBox" Canvas.Top="160" />
-            <TextBlock x:Name="HeightWaterMark" Text="Podaj wzrost dziecka" FontSize="14" Foreground="gray"
+            <TextBlock Text="Podaj wzrost dziecka" FontSize="14" Foreground="gray"
                        IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="164">
                 <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
@@ -110,7 +109,7 @@
                 <Canvas.Top>185</Canvas.Top>
             </TextBlock>
             <TextBox x:Name="WeightTextBox" Canvas.Top="215" />
-            <TextBlock x:Name="WeightWaterMark" Text="Podaj wagę dziecka" FontSize="14" Foreground="gray"
+            <TextBlock Text="Podaj wagę dziecka" FontSize="14" Foreground="gray"
                        IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="218">
                 <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
@@ -125,27 +124,39 @@
             </TextBlock>
             <Label Content="Plik z danymi do siatki&#xA;centylowej wagi:"
                    Height="50" Canvas.Top="240" />
-            <TextBox x:Name="WeightFileTextBox" Text="DefaultBoyWeightGrowthChart.txt" Canvas.Top="290" />
+            <TextBox x:Name="WeightFileTextBox" Text="DefaultBoyWeightGrowthChart.txt" Canvas.Top="290"
+                     IsReadOnly="True" TextWrapping="WrapWithOverflow" Height="60" MaxLines="3" TextAlignment="Justify"
+                     VerticalContentAlignment="Top" />
+            <CheckBox Name="DefaultWeightCheckBox" Content="Domyślny" Canvas.Top="360" Canvas.Left="25" Width="100"
+                      HorizontalAlignment="Left" IsChecked="True" />
+            <Button Name="WeightFileButton" Content="Wybierz" Canvas.Top="360" Canvas.Right="25" Width="75"
+                    FontSize="14"
+                    HorizontalAlignment="Right" Click="WeightFileBtn_Clicked" Canvas.Left="160" />
             <Label Content="Plik z danymi do siatki&#xA;centylowej wzrostu:"
-                   Height="50" Canvas.Top="315" />
-            <TextBox x:Name="HeightFileTextBox" Text="DefaultBoyHeightGrowthChart.txt" Canvas.Top="365" />
-            <Label Content="* wymagane" Canvas.Top="395" Foreground="Red" />
+                   Height="50" Canvas.Top="385" />
+            <TextBox x:Name="HeightFileTextBox" Text="DefaultBoyHeightGrowthChart.txt" Canvas.Top="435"
+                     TextAlignment="Justify" VerticalContentAlignment="Top"
+                     IsReadOnly="True" Height="60" />
+            <CheckBox Name="DefaultHeightCheckBox" Content="Domyślny" Canvas.Top="505" Canvas.Left="25" Width="100"
+                      HorizontalAlignment="Left" IsChecked="True" />
+            <Button Name="HeightFileButton" Content="Wybierz" Canvas.Top="505" Canvas.Right="25" Width="75"
+                    FontSize="14"
+                    HorizontalAlignment="Right" Canvas.Left="160" Click="HeightFileBtn_Clicked" />
+            <Label Content="* Wymagane" Canvas.Top="525" Foreground="Red" />
         </Canvas>
 
-        <Canvas Margin="50,25" Grid.Row="1" Grid.Column="0">
-            <Label Content="Przewidywany wzrost dziecka [cm]:"
-                   VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" />
-            <TextBox x:Name="EstHeightTextBox" Width="60"
-                VerticalAlignment="Top" HorizontalAlignment="Left" Height="30"
-                TextAlignment="Center" IsReadOnly="True" Canvas.Left="300" />
-            <Label Content="Przewidywana waga dziecka [kg]:"
-                VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Canvas.Top="50" />
-            <TextBox x:Name="EstWeightTextBox" Width="60"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Height="30"
-                TextAlignment="Center" IsReadOnly="True" Canvas.Left="300" Canvas.Top="50" />
+        <Canvas Margin="50,25" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Label Content="Przewidywany wzrost dziecka [cm]:" Width="300" />
+            <TextBox x:Name="EstHeightTextBox" Width="60" Height="30" HorizontalContentAlignment="Center"
+                     IsReadOnly="True" Canvas.Left="300" />
+            <Label Content="Przewidywana waga dziecka [kg]:" Width="300" Canvas.Top="50" />
+            <TextBox x:Name="EstWeightTextBox" Width="60" Height="30" HorizontalContentAlignment="Center"
+                     IsReadOnly="True" Canvas.Left="300" Canvas.Top="50" />
         </Canvas>
 
-        <Button Name="EstimateBtn" Content="Oszacuj wzrost i wagę dziecka" Grid.Row="1" Grid.Column="1" Height="50" Margin="30,48,0,0" FontSize="14" HorizontalAlignment="Left" Width="250" VerticalAlignment="Top" Click="EstimateBtn_Clicked">
+        <Button Content="Oszacuj wzrost i wagę dziecka" Grid.Row="1" Grid.Column="1" Height="50"
+                Margin="30,48,0,0" FontSize="14" HorizontalAlignment="Left" Width="250" VerticalAlignment="Top"
+                Click="EstimateBtn_Clicked">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF838383" Offset="1" />

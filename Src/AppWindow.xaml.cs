@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows;
+using Microsoft.Win32;
 
 namespace ProjektIndywidualny.Src
 {
@@ -65,6 +67,32 @@ namespace ProjektIndywidualny.Src
                 EstWeightTextBox.Text = "";
                 alertBox.Show("Podano błędne dane.", e3.Message);
                 return;
+            }
+        }
+
+        private void WeightFileBtn_Clicked(object sender, RoutedEventArgs e)
+        {
+            Assembly asm = Assembly.GetExecutingAssembly();
+            string path = System.IO.Path.GetDirectoryName(asm.Location);
+            path += @"\bin\Debug";
+            OpenFileDialog dlg = new OpenFileDialog {DefaultExt = ".txt", Filter = "Text documents (.txt)|*.txt", InitialDirectory = path};
+            bool? result = dlg.ShowDialog();
+            if (result == true)
+            {
+                WeightFileTextBox.Text = dlg.FileName;
+            }
+        }
+
+        private void HeightFileBtn_Clicked(object sender, RoutedEventArgs e)
+        {
+            Assembly asm = Assembly.GetExecutingAssembly();
+            string path = System.IO.Path.GetDirectoryName(asm.Location);
+            path += @"\bin\Debug";
+            OpenFileDialog dlg = new OpenFileDialog {DefaultExt = ".txt", Filter = "Text documents (.txt)|*.txt", InitialDirectory = path};
+            bool? result = dlg.ShowDialog();
+            if (result == true)
+            {
+                HeightFileTextBox.Text = dlg.FileName;
             }
         }
     }
