@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Age" xml:space="preserve">
+    <value>age </value>
+    <comment>Global</comment>
+  </data>
+  <data name="AgeIsNotInRange" xml:space="preserve">
+    <value>Age should be a number </value>
+    <comment>UserDataValidator.cs</comment>
+  </data>
+  <data name="AgeShouldBeIncreasing" xml:space="preserve">
+    <value>Age should be increasing.</value>
+    <comment>FileDataValidator.cs</comment>
+  </data>
+  <data name="And" xml:space="preserve">
+    <value> and </value>
+    <comment>Global</comment>
+  </data>
+  <data name="BelowLowestPercentile" xml:space="preserve">
+    <value>The parameter value is below the lowest percentile.</value>
+    <comment>Estimator.cs</comment>
+  </data>
+  <data name="ChildAge" xml:space="preserve">
+    <value>Child's age:</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="ChildGender" xml:space="preserve">
+    <value>Child's gender:</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="ChildGenderIsNotChosen" xml:space="preserve">
+    <value>The child's gender has not been selected.</value>
+    <comment>UserDataValidator.cs</comment>
+  </data>
+  <data name="ChildHeight" xml:space="preserve">
+    <value>Child's height:</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="ChildWeight" xml:space="preserve">
+    <value>Child's weight</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="Choose" xml:space="preserve">
+    <value>Choose</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Default</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="EnterChildAge" xml:space="preserve">
+    <value>Enter child's age</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="EnterChildHeight" xml:space="preserve">
+    <value>Enter child's height</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="EnterChildWeight" xml:space="preserve">
+    <value>Enter child's weight</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="EstimateButton" xml:space="preserve">
+    <value>Estimate child's height and weight</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="EstimatedHeightLabel" xml:space="preserve">
+    <value>Estimated child's height [cm]</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="EstimatedWeightLabel" xml:space="preserve">
+    <value>Estimated child's weight [kg]</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="Field" xml:space="preserve">
+    <value>Field </value>
+    <comment>Global</comment>
+  </data>
+  <data name="FileNotFound" xml:space="preserve">
+    <value>File not found:  </value>
+    <comment>FileDataLoader.cs</comment>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>from </value>
+    <comment>Global</comment>
+  </data>
+  <data name="Girl" xml:space="preserve">
+    <value>girl</value>
+    <comment>AppWindows.xaml</comment>
+  </data>
+  <data name="Given" xml:space="preserve">
+    <value>Given</value>
+    <comment>Global</comment>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>height </value>
+    <comment>Global</comment>
+  </data>
+  <data name="HeightFileLabel" xml:space="preserve">
+    <value>Data file for height percentile grid:</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="IncorrectData" xml:space="preserve">
+    <value>Data is incorrect.</value>
+    <comment>AppWindow.xaml.cs</comment>
+  </data>
+  <data name="IncorrectDataInFile" xml:space="preserve">
+    <value>Incorrect data in file. </value>
+    <comment>AppWindow.xaml.cs</comment>
+  </data>
+  <data name="IsNotAnInt" xml:space="preserve">
+    <value>is not an integer.</value>
+    <comment>UserDataValidator.cs</comment>
+  </data>
+  <data name="IsRequired" xml:space="preserve">
+    <value>is required. </value>
+    <comment>Global</comment>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>Label: </value>
+    <comment>Global</comment>
+  </data>
+  <data name="Line" xml:space="preserve">
+    <value>Line: </value>
+    <comment>Global</comment>
+  </data>
+  <data name="MissingAgeData" xml:space="preserve">
+    <value>Age data is missing: </value>
+    <comment>Estimator.cs</comment>
+  </data>
+  <data name="MissingValueData" xml:space="preserve">
+    <value>Missing data in file. </value>
+    <comment>FileDataValidator.cs</comment>
+  </data>
+  <data name="OverHighestPercentile" xml:space="preserve">
+    <value>The parameter value is over the highest percentile. </value>
+    <comment>Estimator.cs</comment>
+  </data>
+  <data name="Parameter" xml:space="preserve">
+    <value>parameter: </value>
+    <comment>UserDataValidator.cs</comment>
+  </data>
+  <data name="PlotsValueShouldntOverlap" xml:space="preserve">
+    <value>The values ​​from the percentile plots should not overlap. </value>
+    <comment>FileDataValidator.cs</comment>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Required</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Child's height and weight calculator</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value> to </value>
+    <comment>Global</comment>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Value</value>
+    <comment>Global</comment>
+  </data>
+  <data name="ValuesShouldBeNonDecreasing" xml:space="preserve">
+    <value>The values ​​should be non-decreasing.</value>
+    <comment>FileDataValidator.cs</comment>
+  </data>
+  <data name="ValuesShouldBePositive" xml:space="preserve">
+    <value>The values ​​should be positive.</value>
+    <comment>FileDataValidator.cs</comment>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>weight </value>
+    <comment>Global</comment>
+  </data>
+  <data name="WeightFileLabel" xml:space="preserve">
+    <value>Data file for weight percentile grid:</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="Years" xml:space="preserve">
+    <value> years.</value>
+    <comment>Estimator.cs</comment>
+  </data>
+</root>
