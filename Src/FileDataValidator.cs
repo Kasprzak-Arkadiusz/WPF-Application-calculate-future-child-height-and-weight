@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using str = ProjektIndywidualny.Properties.strings;
 
 namespace ProjektIndywidualny.Src
 {
@@ -21,8 +22,8 @@ namespace ProjektIndywidualny.Src
             {
                 if (plots[i, j].X <= plots[i, j - 1].X)
                 {
-                    throw new ArgumentException("Wiek powinien rosnąć." + " Etykieta:" + i + ", linia:" +
-                                                (j - 1) + " oraz linia:" + j);
+                    throw new ArgumentException(str.AgeShouldBeIncreasing + str.Label + i + ". " + str.Line +
+                                                (j - 1) + str.And + str.Line + j);
                 }
             }
         }
@@ -35,8 +36,8 @@ namespace ProjektIndywidualny.Src
                 {
                     if (plots[i, j].Y < plots[i, j - 1].Y)
                     {
-                        throw new ArgumentException("Wartości powinny być niemalejące." + " Etykieta:" + i +
-                                                    ", linia:" + (j - 1) + " oraz linia:" + j);
+                        throw new ArgumentException(str.ValuesShouldBeNonDecreasing + str.Label + i +
+                                                    ". " + str.Line + (j - 1) + str.And + str.Line + j);
                     }
                 }
             }
@@ -50,8 +51,8 @@ namespace ProjektIndywidualny.Src
                 {
                     if (plots[i, j].X < 0 || plots[i, j].Y < 0)
                     {
-                        throw new ArgumentException("Wartości powinny być dodatnie." + " Etykieta:" + i +
-                                                    " linia:" + (j));
+                        throw new ArgumentException(str.ValuesShouldBePositive + str.Label + i +
+                                                    str.Line + (j));
                     }
                 }
             }
@@ -61,7 +62,7 @@ namespace ProjektIndywidualny.Src
         {
             if (plots.GetLength(0) <= 1 || plots.GetLength(1) == 0)
             {
-                throw new ArgumentException("W pliku nie podano danych.");
+                throw new ArgumentException(str.MissingValueData);
             }
         }
 
@@ -69,11 +70,13 @@ namespace ProjektIndywidualny.Src
         {
             for (int i = 1; i < plots.GetLength(1); i++)
             {
-                for (int j = 0; j < plots.GetLength(0)-1; j++)
+                for (int j = 0; j < plots.GetLength(0) - 1; j++)
                 {
-                    if (plots[j,i].Y >= plots[j+1,i].Y)
+                    if (plots[j, i].Y >= plots[j + 1, i].Y)
                     {
-                        throw new ArgumentException("Wartości z siatek centylowych nie powinny na siebie nachodzić. Linia: " + i + "Etykiety: " +  j + "oraz" + j+1);
+                        throw new ArgumentException( str.PlotsValueShouldntOverlap +
+                            str.Line + i +
+                            str.Label + j + str.And + j + 1);
                     }
                 }
             }

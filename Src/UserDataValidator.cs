@@ -1,5 +1,7 @@
 ﻿using System;
 
+using str = ProjektIndywidualny.Properties.strings;
+
 namespace ProjektIndywidualny.Src
 {
     public static class UserDataValidator
@@ -17,15 +19,15 @@ namespace ProjektIndywidualny.Src
         {
             if (age == "")
             {
-                throw new ArgumentException("Pole wiek jest wymagane.");
+                throw new ArgumentException(str.Field + str.Age + str.IsRequired);
             }
             if (height == "")
             {
-                throw new ArgumentException("Pole wzrost jest wymagane.");
+                throw new ArgumentException(str.Field + str.Height + str.IsRequired);
             }
             if (weight == "")
             {
-                throw new ArgumentException("Pole waga jest wymagane.");
+                throw new ArgumentException(str.Field + str.Weight + str.IsRequired);
             }
         }
 
@@ -33,7 +35,7 @@ namespace ProjektIndywidualny.Src
         {
             if (isBoyButtonClicked == isGirlButtonClicked)
             {
-                throw new ArgumentException("Płeć dziecka nie została wybrana.");
+                throw new ArgumentException(str.ChildGenderIsNotChosen);
             }
 
         }
@@ -42,17 +44,17 @@ namespace ProjektIndywidualny.Src
         {
             if (!int.TryParse(age, out _))
             {
-                throw new ArgumentException("Podany wiek nie jest liczbą całkowitą.");
+                throw new ArgumentException(str.Given + str.Parameter + str.Age + str.IsNotAnInt);
             }
 
             if (!int.TryParse(height, out _))
             {
-                throw new ArgumentException("Podany wzrost nie jest liczbą całkowitą.");
+                throw new ArgumentException(str.Given + str.Parameter + str.Height + str.IsNotAnInt);
             }
 
             if (!int.TryParse(weight, out _))
             {
-                throw new ArgumentException("Podana waga nie jest liczbą całkowitą.");
+                throw new ArgumentException(str.Given + str.Parameter + str.Age + str.IsNotAnInt);
             }
         }
 
@@ -62,7 +64,7 @@ namespace ProjektIndywidualny.Src
 
             if (numericAge < 3 || numericAge > 17)
             {
-                throw new ArgumentException("Wiek powinien być liczbą z zakresu od 3 do 17.");
+                throw new ArgumentException(str.AgeIsNotInRange + str.From + "3" + str.To + "17.");
             }
         }
     }

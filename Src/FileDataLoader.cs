@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Reflection;
+using str = ProjektIndywidualny.Properties.strings;
 
 namespace ProjektIndywidualny.Src
 {
@@ -33,7 +34,7 @@ namespace ProjektIndywidualny.Src
             }
             catch (FileNotFoundException)
             {
-                throw new FileNotFoundException($"Nie znaleziono pliku: {fileName}");
+                throw new FileNotFoundException(str.FileNotFound + fileName);
             }
 
             LoadData(formattedContent, out chart, out labels);
@@ -52,7 +53,7 @@ namespace ProjektIndywidualny.Src
                 string[] tokens = lines[i].Split(stringSeparator, StringSplitOptions.RemoveEmptyEntries);
                 if (!Double.TryParse(tokens[0], out double tempAge))
                 {
-                    throw new ArgumentException($"Podany wiek nie jest liczbą. Linia: {i}");
+                    throw new ArgumentException(str.Given + str.Age + str.IsNotAnInt + str.Line + i);
                 }
 
                 int age = (int) tempAge;
@@ -61,7 +62,8 @@ namespace ProjektIndywidualny.Src
                 {
                     if (!Double.TryParse(tokens[j + 1], out double tempValue))
                     {
-                        throw new ArgumentException($"Podany wiek nie jest liczbą. Linia: {i}, etykieta: {labels[j]}");
+                        throw new ArgumentException(
+                            str.Given + str.Age + str.IsNotAnInt + str.Line + i + ". " + str.Label + labels[j]);
                     }
 
                     chart.Plots[j, i - 1] = new Point(age, (int) tempValue);

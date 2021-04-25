@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Globalization;
 using System.Reflection;
+using System.Threading;
 using System.Windows;
 using Microsoft.Win32;
+
+using str = ProjektIndywidualny.Properties.strings; 
 
 namespace ProjektIndywidualny.Src
 {
@@ -9,10 +13,13 @@ namespace ProjektIndywidualny.Src
     {
         public MainWindow()
         {
-            InitializeComponent();
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            Console.WriteLine(Properties.strings.AgeIsNotInRange);
+            Console.WriteLine("CurrentCulture is {0}.", CultureInfo.CurrentCulture.Name);
         }
 
-        private void EstimateBtn_Clicked(object sender, RoutedEventArgs e)
+        private void EstimateBtn_Clicked(object sender, RoutedEventArgs e) 
         {
             string age = AgeTextBox.Text;
             string height = HeightTextBox.Text;
@@ -27,7 +34,7 @@ namespace ProjektIndywidualny.Src
             }
             catch (Exception e1)
             {
-                alertBox.Show("Podano błędne dane.", e1.Message);
+                alertBox.Show(str.IncorrectData, e1.Message);
                 return;
             }
 
@@ -48,7 +55,7 @@ namespace ProjektIndywidualny.Src
 
             catch (ArgumentException e2)
             {
-                alertBox.Show("Błędne dane w pliku.", e2.Message);
+                alertBox.Show(str.IncorrectDataInFile, e2.Message);
                 return;
             }
 
@@ -65,7 +72,7 @@ namespace ProjektIndywidualny.Src
             {
                 EstHeightTextBox.Text = "";
                 EstWeightTextBox.Text = "";
-                alertBox.Show("Podano błędne dane.", e3.Message);
+                alertBox.Show(str.IncorrectData, e3.Message);
                 return;
             }
         }

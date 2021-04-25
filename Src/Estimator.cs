@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 
+using str = ProjektIndywidualny.Properties.strings;
+
 namespace ProjektIndywidualny.Src
 {
     public static class Estimator
@@ -12,12 +14,12 @@ namespace ProjektIndywidualny.Src
 
             if (currentParameter < plots[0, curAgeIndex].Y)
             {
-                throw new ArgumentException("Wartość parametru znajduje się poniżej najmniejszego centylu.");
+                throw new ArgumentException(str.BelowLowestPercentile);
             }
 
             if (currentParameter > plots[plots.GetLength(0) - 1, curAgeIndex].Y)
             {
-                throw new ArgumentException("Wartość parametru znajduje się powyżej najwyższego centylu.");
+                throw new ArgumentException(str.OverHighestPercentile);
             }
 
             Point indices = FindBottomAndUpperIndex(plots, currentParameter, curAgeIndex, estAgeIndex);
@@ -59,7 +61,7 @@ namespace ProjektIndywidualny.Src
                 }
             }
 
-            throw new ArgumentException("W pliku brakuje danych dla wieku: " + age + " lat.");
+            throw new ArgumentException(str.MissingAgeData + age + str.Years);
         }
 
         private static Point FindBottomAndUpperIndex(Point[,] plots, int currentParameter, int curAgeIndex,

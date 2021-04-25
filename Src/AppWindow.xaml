@@ -1,32 +1,44 @@
-﻿<Window x:Class="ProjektIndywidualny.Src.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        Title="Kalkulator wzrostu i wagi dziecka"
-        MinHeight="768"
-        MinWidth="1024"
-        Height="768"
-        Width="1024"
-        VerticalAlignment="Top"
-        HorizontalAlignment="Left"
-        FontSize="16"
-        FontFamily="Century Gothic">
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:p="clr-namespace:ProjektIndywidualny.Properties"
+    xmlns:system="clr-namespace:System;assembly=mscorlib" x:Class="ProjektIndywidualny.Src.MainWindow"
+    Title="{x:Static p:strings.Title}"
+    mc:Ignorable="d"
+    MinHeight="768"
+    MinWidth="1024"
+    Height="768"
+    Width="1024"
+    VerticalAlignment="Top"
+    HorizontalAlignment="Left"
+    FontSize="16"
+    FontFamily="Century Gothic">
     <Window.Resources>
-        <Style TargetType="Label">
+        <Style TargetType="{x:Type Label}">
             <Setter Property="Height" Value="30" />
             <Setter Property="Width" Value="250" />
         </Style>
-        <Style TargetType="TextBlock">
+        <Style TargetType="{x:Type TextBlock}">
             <Setter Property="Height" Value="30" />
             <Setter Property="Width" Value="250" />
         </Style>
-        <Style TargetType="TextBox">
+        <Style TargetType="{x:Type TextBox}">
             <Setter Property="Height" Value="25" />
             <Setter Property="Width" Value="250" />
             <Setter Property="FontSize" Value="14" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF838383" Offset="1" />
+                        <GradientStop Color="#FFE8E8E8" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
     <Grid Background="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}">
@@ -43,36 +55,38 @@
 
         <Canvas Grid.Row="0" Grid.Column="1" Margin="25,24,25,0">
             <TextBlock>
-                <Run Foreground="Red">*</Run>
-                <Run Foreground="Black">Płeć dziecka</Run>
+                <Run Foreground="Red" Text="*" /><Run Text=" " />
+                <Run Foreground="Black" Text="{x:Static p:strings.ChildGender}" />
             </TextBlock>
             <Canvas Canvas.Top="25">
-                <RadioButton Name="GirlRadioButton" GroupName="SexChoice">
+                <RadioButton x:Name="GirlRadioButton" GroupName="GenderChoice" Canvas.Top="5" Canvas.Left="2"
+                             Width="50">
                     <WrapPanel>
-                        <Label Content="dziewczynka" Width="100" Height="25" Padding="0" />
-                        <Image Source="../Resources/female-gender-icon.png" VerticalAlignment="Top" Height="15"
-                               Width="15" Margin="5, 2,0,0" />
+                        <Image Source="../Resources/female-gender-icon.png" VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Width="15" Height="15" Margin="5, 2,0,0" />
                     </WrapPanel>
                 </RadioButton>
             </Canvas>
             <Canvas Canvas.Top="50">
-                <RadioButton Name="BoyRadioButton" GroupName="SexChoice">
+                <RadioButton x:Name="BoyRadioButton" GroupName="GenderChoice" Canvas.Left="60" Canvas.Top="-20"
+                             Width="50">
                     <WrapPanel>
-                        <Label Content="chłopiec" Width="70" Height="25" Padding="0" />
-                        <Image Source="../Resources/male-gender-icon.png" VerticalAlignment="Top" Height="15"
+                        <Image Source="../Resources/male-gender-icon.png" VerticalAlignment="Top"
                                Width="15" Margin="5, 2,0,0" />
                     </WrapPanel>
                 </RadioButton>
             </Canvas>
-            <TextBlock>
-                <Run Foreground="Red">*</Run>
-                <Run Foreground="Black">Wiek dziecka</Run>
-                <Canvas.Top>75</Canvas.Top>
+            <TextBlock Padding="0,5,0,0">
+                <Canvas.Top>
+                    <system:Double>50</system:Double>
+                </Canvas.Top>
+                <Run Foreground="Red" Text="*" />
+                <Run Foreground="Black" Text="{x:Static p:strings.ChildAge}" />
             </TextBlock>
-
-            <TextBox x:Name="AgeTextBox" Canvas.Top="105" />
-            <TextBlock Text="Podaj wiek dziecka" FontSize="14" Foreground="gray"
-                       IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="108">
+            <TextBox x:Name="AgeTextBox" Canvas.Top="80" />
+            <TextBlock Text="{x:Static p:strings.EnterChildAge}" FontSize="14" Foreground="gray"
+                       IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="83">
                 <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
                         <Setter Property="Visibility" Value="Collapsed" />
@@ -84,14 +98,16 @@
                     </Style>
                 </TextBlock.Style>
             </TextBlock>
-            <TextBlock>
-                <Run Foreground="Red">*</Run>
-                <Run Foreground="Black">Wzrost dziecka</Run>
-                <Canvas.Top>130</Canvas.Top>
+            <TextBlock Padding="0,5,0,0">
+                <Canvas.Top>
+                    <system:Double>105</system:Double>
+                </Canvas.Top>
+                <Run Foreground="Red" Text="*" />
+                <Run Foreground="Black" Text="{x:Static p:strings.ChildHeight}" />
             </TextBlock>
-            <TextBox x:Name="HeightTextBox" Canvas.Top="160" />
-            <TextBlock Text="Podaj wzrost dziecka" FontSize="14" Foreground="gray"
-                       IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="164">
+            <TextBox x:Name="HeightTextBox" Canvas.Top="139" />
+            <TextBlock Text="{x:Static p:strings.EnterChildHeight}" FontSize="14" Foreground="gray"
+                       IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="142">
                 <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
                         <Setter Property="Visibility" Value="Collapsed" />
@@ -103,14 +119,16 @@
                     </Style>
                 </TextBlock.Style>
             </TextBlock>
-            <TextBlock>
-                <Run Foreground="Red">*</Run>
-                <Run Foreground="Black">Waga dziecka</Run>
-                <Canvas.Top>185</Canvas.Top>
+            <TextBlock Padding="0,5,0,0">
+                <Canvas.Top>
+                    <system:Double>160</system:Double>
+                </Canvas.Top>
+                <Run Foreground="Red" Text="*" />
+                <Run Foreground="Black" Text="{x:Static p:strings.ChildWeight}" />
             </TextBlock>
-            <TextBox x:Name="WeightTextBox" Canvas.Top="215" />
-            <TextBlock Text="Podaj wagę dziecka" FontSize="14" Foreground="gray"
-                       IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="218">
+            <TextBox x:Name="WeightTextBox" Canvas.Top="194" />
+            <TextBlock Text="{x:Static p:strings.EnterChildWeight}" FontSize="14" Foreground="gray"
+                       IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="197">
                 <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
                         <Setter Property="Visibility" Value="Collapsed" />
@@ -122,48 +140,51 @@
                     </Style>
                 </TextBlock.Style>
             </TextBlock>
-            <Label Content="Plik z danymi do siatki&#xA;centylowej wagi:"
-                   Height="50" Canvas.Top="240" />
-            <TextBox x:Name="WeightFileTextBox" Text="DefaultBoyWeightGrowthChart.txt" Canvas.Top="290"
+            <TextBlock Text="{x:Static p:strings.WeightFileLabel}" TextWrapping="WrapWithOverflow"
+                       Height="50" Canvas.Top="225" />
+            <TextBox x:Name="WeightFileTextBox" Text="DefaultBoyWeightGrowthChart.txt" Canvas.Top="275"
                      IsReadOnly="True" TextWrapping="WrapWithOverflow" Height="60" MaxLines="3" TextAlignment="Justify"
                      VerticalContentAlignment="Top" />
-            <CheckBox Name="DefaultWeightCheckBox" Content="Domyślny" Canvas.Top="360" Canvas.Left="25" Width="100"
+            <CheckBox x:Name="DefaultWeightCheckBox" Content="{x:Static p:strings.Default}" Canvas.Top="345"
+                      Canvas.Left="25" Width="100" IsEnabled="False"
                       HorizontalAlignment="Left" IsChecked="True" />
-            <Button Name="WeightFileButton" Content="Wybierz" Canvas.Top="360" Canvas.Right="25" Width="75"
+            <Button x:Name="WeightFileButton" Content="{x:Static p:strings.Choose}" Canvas.Top="345" Canvas.Right="25"
+                    Width="75"
                     FontSize="14"
                     HorizontalAlignment="Right" Click="WeightFileBtn_Clicked" Canvas.Left="160" />
-            <Label Content="Plik z danymi do siatki&#xA;centylowej wzrostu:"
-                   Height="50" Canvas.Top="385" />
-            <TextBox x:Name="HeightFileTextBox" Text="DefaultBoyHeightGrowthChart.txt" Canvas.Top="435"
-                     TextAlignment="Justify" VerticalContentAlignment="Top"
+            <TextBlock Text="{x:Static p:strings.HeightFileLabel}" TextWrapping="WrapWithOverflow"
+                       Height="50" Canvas.Top="370" />
+            <TextBox x:Name="HeightFileTextBox" Text="DefaultBoyHeightGrowthChart.txt" Canvas.Top="420"
+                     TextAlignment="Justify" VerticalContentAlignment="Top" TextWrapping="WrapWithOverflow"
                      IsReadOnly="True" Height="60" />
-            <CheckBox Name="DefaultHeightCheckBox" Content="Domyślny" Canvas.Top="505" Canvas.Left="25" Width="100"
+            <CheckBox x:Name="DefaultHeightCheckBox" Content="{x:Static p:strings.Default}" Canvas.Top="490"
+                      Canvas.Left="25" Width="100" IsEnabled="False"
                       HorizontalAlignment="Left" IsChecked="True" />
-            <Button Name="HeightFileButton" Content="Wybierz" Canvas.Top="505" Canvas.Right="25" Width="75"
+            <Button x:Name="HeightFileButton" Content="{x:Static p:strings.Choose}" Canvas.Top="490" Canvas.Right="25"
+                    Width="75"
                     FontSize="14"
                     HorizontalAlignment="Right" Canvas.Left="160" Click="HeightFileBtn_Clicked" />
-            <Label Content="* Wymagane" Canvas.Top="525" Foreground="Red" />
+            <TextBlock>
+                <Canvas.Top>
+                    <system:Double>515</system:Double>
+                </Canvas.Top>
+                <Run Foreground="Red" Text="*" /><Run Text=" " />
+                <Run Foreground="Red" Text="{x:Static p:strings.Required}" />
+            </TextBlock>
         </Canvas>
 
         <Canvas Margin="50,25" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <Label Content="Przewidywany wzrost dziecka [cm]:" Width="300" />
+            <Label Content="{x:Static p:strings.EstimatedHeightLabel}" Width="300" />
             <TextBox x:Name="EstHeightTextBox" Width="60" Height="30" HorizontalContentAlignment="Center"
                      IsReadOnly="True" Canvas.Left="300" />
-            <Label Content="Przewidywana waga dziecka [kg]:" Width="300" Canvas.Top="50" />
+            <Label Content="{x:Static p:strings.EstimatedWeightLabel}" Width="300" Canvas.Top="50" />
             <TextBox x:Name="EstWeightTextBox" Width="60" Height="30" HorizontalContentAlignment="Center"
                      IsReadOnly="True" Canvas.Left="300" Canvas.Top="50" />
         </Canvas>
 
-        <Button Content="Oszacuj wzrost i wagę dziecka" Grid.Row="1" Grid.Column="1" Height="50"
+        <Button Content="{x:Static p:strings.EstimateButton}" Grid.Row="1" Grid.Column="1" Height="50"
                 Margin="30,48,0,0" FontSize="14" HorizontalAlignment="Left" Width="250" VerticalAlignment="Top"
-                Click="EstimateBtn_Clicked">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF838383" Offset="1" />
-                    <GradientStop Color="#FFE8E8E8" />
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
+                Click="EstimateBtn_Clicked" />
 
     </Grid>
 </Window>
