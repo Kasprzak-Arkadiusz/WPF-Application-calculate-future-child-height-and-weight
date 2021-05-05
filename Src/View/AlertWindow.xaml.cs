@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace ProjektIndywidualny.Src
+namespace ProjektIndywidualny.View
 {
     public partial class AlertWindow
     {
@@ -12,14 +12,14 @@ namespace ProjektIndywidualny.Src
 
         public void Show(string windowTitle, string message)
         {
-            this.Title = windowTitle;
-            this.MessageTextBlock.Text = message;
-            this.Show();
+            Title = windowTitle;
+            MessageTextBlock.Text = message;
+            Show();
         }
 
         private void OkButton_Clicked(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void Window_Deactivated(object sender, EventArgs e)

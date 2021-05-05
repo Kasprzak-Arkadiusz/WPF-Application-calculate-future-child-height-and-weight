@@ -97,7 +97,7 @@ namespace ProjektIndywidualny.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wartość parametru znajduje się poniżej najniższego centylu..
+        ///   Looks up a localized string similar to Wartość parametru znajduje się poniżej najniższego centylu.
         /// </summary>
         public static string BelowLowestPercentile {
             get {
@@ -160,11 +160,74 @@ namespace ProjektIndywidualny.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CurrentHeight.
+        /// </summary>
+        public static string CurrentHeight {
+            get {
+                return ResourceManager.GetString("CurrentHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CurrentWeight.
+        /// </summary>
+        public static string CurrentWeight {
+            get {
+                return ResourceManager.GetString("CurrentWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Domyślny.
         /// </summary>
         public static string Default {
             get {
                 return ResourceManager.GetString("Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tutaj powinien być komunikat o błędzie. Jeśli widzisz tę wiadomość, skontaktuj się z twórcą..
+        /// </summary>
+        public static string DefaultAlertMessage {
+            get {
+                return ResourceManager.GetString("DefaultAlertMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DefaultBoyHeightGrowthChart.txt.
+        /// </summary>
+        public static string DefaultBoyHeightGrowthChart {
+            get {
+                return ResourceManager.GetString("DefaultBoyHeightGrowthChart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DefaultBoyWeightGrowthChart.txt.
+        /// </summary>
+        public static string DefaultBoyWeightGrowthChart {
+            get {
+                return ResourceManager.GetString("DefaultBoyWeightGrowthChart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DefaultGirlHeightGrowthChart.txt.
+        /// </summary>
+        public static string DefaultGirlHeightGrowthChart {
+            get {
+                return ResourceManager.GetString("DefaultGirlHeightGrowthChart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DefaultGirlWeightGrowthChart.txt.
+        /// </summary>
+        public static string DefaultGirlWeightGrowthChart {
+            get {
+                return ResourceManager.GetString("DefaultGirlWeightGrowthChart", resourceCulture);
             }
         }
         
@@ -192,6 +255,24 @@ namespace ProjektIndywidualny.Properties {
         public static string EnterChildWeight {
             get {
                 return ResourceManager.GetString("EnterChildWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Błąd.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Błąd w pliku .
+        /// </summary>
+        public static string ErrorInFile {
+            get {
+                return ResourceManager.GetString("ErrorInFile", resourceCulture);
             }
         }
         
@@ -358,7 +439,7 @@ namespace ProjektIndywidualny.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wartość parametru znajduje się powyżej najwyższego centylu..
+        ///   Looks up a localized string similar to Wartość parametru znajduje się powyżej najwyższego centylu.
         /// </summary>
         public static string OverHighestPercentile {
             get {
@@ -394,6 +475,15 @@ namespace ProjektIndywidualny.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to powinna być dodatnia..
+        /// </summary>
+        public static string ShouldBePositive {
+            get {
+                return ResourceManager.GetString("ShouldBePositive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kalkulator wzrostu i wagi dziecka.
         /// </summary>
         public static string Title {
@@ -412,11 +502,20 @@ namespace ProjektIndywidualny.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wartość.
+        ///   Looks up a localized string similar to Wartość .
         /// </summary>
         public static string Value {
             get {
                 return ResourceManager.GetString("Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wartość nie jest liczbą całkowitą..
+        /// </summary>
+        public static string ValueIsNotInt {
+            get {
+                return ResourceManager.GetString("ValueIsNotInt", resourceCulture);
             }
         }
         

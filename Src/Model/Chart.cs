@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace ProjektIndywidualny.Src
+namespace ProjektIndywidualny.Model
 {
     public class Chart
     {
@@ -10,7 +10,5 @@ namespace ProjektIndywidualny.Src
         {
             Plots = new Point[numberOfPlots, numberOfPoints];
         }
-
-        public Chart() { }
     }
 }

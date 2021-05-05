@@ -2,7 +2,7 @@
 using System.Drawing;
 using str = ProjektIndywidualny.Properties.strings;
 
-namespace ProjektIndywidualny.Src
+namespace ProjektIndywidualny.Model
 {
     public static class FileDataValidator
     {
@@ -17,7 +17,7 @@ namespace ProjektIndywidualny.Src
 
         private static void IsAgeIncreasing(Point[,] plots)
         {
-            int i = 0;
+            const int i = 0;
             for (int j = 1; j < plots.GetLength(1); j++)
             {
                 if (plots[i, j].X <= plots[i, j - 1].X)
@@ -52,7 +52,7 @@ namespace ProjektIndywidualny.Src
                     if (plots[i, j].X < 0 || plots[i, j].Y < 0)
                     {
                         throw new ArgumentException(str.ValuesShouldBePositive + str.Label + i +
-                                                    str.Line + (j));
+                                                    str.Line + j);
                     }
                 }
             }

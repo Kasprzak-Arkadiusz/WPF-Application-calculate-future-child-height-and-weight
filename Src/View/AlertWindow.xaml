@@ -1,19 +1,18 @@
-﻿<Window x:Class="ProjektIndywidualny.Src.AlertWindow"
+﻿<Window x:Class="ProjektIndywidualny.View.AlertWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:ProjektIndywidualny.Properties"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Błąd"
-        Icon="../Resources/alert-icon.ico"
+        Title="{x:Static p:strings.Error}"
+        Icon="/Resources/alert-icon.ico"
         Height="180" Width="320"
         MinHeight="180" MinWidth="320"
-        MaxHeight="180" MaxWidth="180"
-        VerticalAlignment="Top"
-        HorizontalAlignment="Left"
-        FontSize="16"
-        FontFamily="Century Gothic"
+        MaxHeight="180" MaxWidth="320"
+        VerticalAlignment="Top" HorizontalAlignment="Left"
+        FontSize="16" FontFamily="Century Gothic"
         Deactivated="Window_Deactivated">
     <Grid Background="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}" VerticalAlignment="Top"
           HorizontalAlignment="Left" Margin="0,0,0,-1" Width="310">
@@ -26,14 +25,13 @@
             <ColumnDefinition Width="220" />
         </Grid.ColumnDefinitions>
         <Canvas Width="80" Height="80">
-            <Image VerticalAlignment="Top" Stretch="UniformToFill" Source="../Resources/alert-image.png" Width="80" />
+            <Image VerticalAlignment="Top" Stretch="UniformToFill" Source="/Resources/alert-image.png" Width="80" />
         </Canvas>
         <Canvas Grid.Row="0" Grid.Column="1" Margin="0,10,20,10" Width="200">
-            <TextBlock Name="MessageTextBlock" Width="200" Height="80" TextWrapping="Wrap" Text="Tutaj powinna być informacja o błędzie. Jeśli widzisz tą wiadomość skontaktuj się z twórcą."
+            <TextBlock Name="MessageTextBlock" Width="200" Height="80" TextWrapping="Wrap" Text="{x:Static p:strings.DefaultAlertMessage}"
                        FontSize="14" TextAlignment="Center" Canvas.Top="0" />
         </Canvas>
-        <Button Name="OkButton" Content="OK" Grid.Row="1" Grid.Column="1" Height="20" Width="60"
+        <Button Content="OK" Grid.Row="1" Grid.Column="1" Height="20" Width="60"
                 Margin="120,0,40,30" FontSize="14" Click="OkButton_Clicked" />
-
     </Grid>
 </Window>

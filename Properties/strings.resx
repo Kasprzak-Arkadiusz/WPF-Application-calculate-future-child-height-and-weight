@@ -134,7 +134,7 @@
     <comment>Global</comment>
   </data>
   <data name="BelowLowestPercentile" xml:space="preserve">
-    <value>Wartość parametru znajduje się poniżej najniższego centylu.</value>
+    <value>Wartość parametru znajduje się poniżej najniższego centylu</value>
     <comment>Estimator.cs</comment>
   </data>
   <data name="ChildAge" xml:space="preserve">
@@ -161,8 +161,36 @@
     <value>Wybierz</value>
     <comment>AppWindow.xaml</comment>
   </data>
+  <data name="CurrentHeight" xml:space="preserve">
+    <value>CurrentHeight</value>
+    <comment>Estimator.cs</comment>
+  </data>
+  <data name="CurrentWeight" xml:space="preserve">
+    <value>CurrentWeight</value>
+    <comment>Estimator.cs</comment>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Domyślny</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="DefaultAlertMessage" xml:space="preserve">
+    <value>Tutaj powinien być komunikat o błędzie. Jeśli widzisz tę wiadomość, skontaktuj się z twórcą.</value>
+    <comment>AlertWindow.xaml</comment>
+  </data>
+  <data name="DefaultBoyHeightGrowthChart" xml:space="preserve">
+    <value>DefaultBoyHeightGrowthChart.txt</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="DefaultBoyWeightGrowthChart" xml:space="preserve">
+    <value>DefaultBoyWeightGrowthChart.txt</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="DefaultGirlHeightGrowthChart" xml:space="preserve">
+    <value>DefaultGirlHeightGrowthChart.txt</value>
+    <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="DefaultGirlWeightGrowthChart" xml:space="preserve">
+    <value>DefaultGirlWeightGrowthChart.txt</value>
     <comment>AppWindow.xaml</comment>
   </data>
   <data name="EnterChildAge" xml:space="preserve">
@@ -176,6 +204,14 @@
   <data name="EnterChildWeight" xml:space="preserve">
     <value>Podaj wagę dziecka</value>
     <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Błąd</value>
+    <comment>AlertWindow.xaml</comment>
+  </data>
+  <data name="ErrorInFile" xml:space="preserve">
+    <value>Błąd w pliku </value>
+    <comment>AppWindowViewModel.cs</comment>
   </data>
   <data name="EstimateButton" xml:space="preserve">
     <value>Oszacuj wzrost i wagę dziecka</value>
@@ -250,7 +286,7 @@
     <comment>FileDataValidator.cs</comment>
   </data>
   <data name="OverHighestPercentile" xml:space="preserve">
-    <value>Wartość parametru znajduje się powyżej najwyższego centylu.</value>
+    <value>Wartość parametru znajduje się powyżej najwyższego centylu</value>
     <comment>Estimator.cs</comment>
   </data>
   <data name="Parameter" xml:space="preserve">
@@ -265,6 +301,10 @@
     <value>Wymagane</value>
     <comment>AppWindow.xaml</comment>
   </data>
+  <data name="ShouldBePositive" xml:space="preserve">
+    <value>powinna być dodatnia.</value>
+    <comment>UserDataValidator.cs</comment>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>Kalkulator wzrostu i wagi dziecka</value>
     <comment>AppWindows.xaml</comment>
@@ -274,8 +314,12 @@
     <comment>Global</comment>
   </data>
   <data name="Value" xml:space="preserve">
-    <value>Wartość</value>
+    <value>Wartość </value>
     <comment>Global</comment>
+  </data>
+  <data name="ValueIsNotInt" xml:space="preserve">
+    <value>Wartość nie jest liczbą całkowitą.</value>
+    <comment>OnlyNumbersValidationRule.cs</comment>
   </data>
   <data name="ValuesShouldBeNonDecreasing" xml:space="preserve">
     <value>Wartości powinny być niemalejące. </value>

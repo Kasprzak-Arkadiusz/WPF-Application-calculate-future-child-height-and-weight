@@ -1,28 +1,43 @@
 ﻿using System;
 using System.Drawing;
-
 using str = ProjektIndywidualny.Properties.strings;
 
-namespace ProjektIndywidualny.Src
+namespace ProjektIndywidualny.Model
 {
     public static class Estimator
     {
-        public static int EstimateChildParameter(Point[,] plots, int currentParameter, int currentAge, int estimatedAge)
+        public static int EstimateChildParameter(Point[,] plots, int currentParameter, int currentAge, int estimatedAge, string nameofParameter)
         {
             int curAgeIndex = FindIndexByAge(plots, currentAge);
             int estAgeIndex = FindIndexByAge(plots, estimatedAge);
 
             if (currentParameter < plots[0, curAgeIndex].Y)
             {
-                throw new ArgumentException(str.BelowLowestPercentile);
+                if (nameofParameter == str.CurrentWeight)
+                {
+                    throw new ArgumentException(str.BelowLowestPercentile + ": " + str.Weight);
+                }
+
+                if (nameofParameter == str.CurrentHeight)
+                {
+                    throw new ArgumentException(str.BelowLowestPercentile + ": " + str.Height);
+                }
             }
 
             if (currentParameter > plots[plots.GetLength(0) - 1, curAgeIndex].Y)
             {
-                throw new ArgumentException(str.OverHighestPercentile);
+                if (nameofParameter == str.CurrentWeight)
+                {
+                    throw new ArgumentException(str.OverHighestPercentile + ": " + str.Weight);
+                }
+
+                if (nameofParameter == str.CurrentHeight)
+                {
+                    throw new ArgumentException(str.OverHighestPercentile + ": " + str.Height);
+                }
             }
 
-            Point indices = FindBottomAndUpperIndex(plots, currentParameter, curAgeIndex, estAgeIndex);
+            Point indices = FindBottomAndUpperIndex(plots, currentParameter, curAgeIndex);
             int curBottomIndex = indices.X;
             int curUpperIndex = indices.Y;
 
@@ -41,12 +56,10 @@ namespace ProjektIndywidualny.Src
         {
             int l = 0;
             int r = plots.GetLength(1) - 1;
-            int m;
 
             while (l <= r)
             {
-                m = l + (r - l) / 2;
-                int test = plots[0, m].X;
+                int m = l + (r - l) / 2;
                 if (age < plots[0, m].X)
                 {
                     r = m - 1;
@@ -64,8 +77,7 @@ namespace ProjektIndywidualny.Src
             throw new ArgumentException(str.MissingAgeData + age + str.Years);
         }
 
-        private static Point FindBottomAndUpperIndex(Point[,] plots, int currentParameter, int curAgeIndex,
-            int estAgeIndex)
+        private static Point FindBottomAndUpperIndex(Point[,] plots, int currentParameter, int curAgeIndex)
         {
             int curBottomIndex = 0;
             int minBottomDistance = -int.MaxValue;
@@ -81,12 +93,12 @@ namespace ProjektIndywidualny.Src
                     curUpperIndex = i;
                     break;
                 }
-                else if (distance < 0 && (distance > minBottomDistance))
+                else if (distance < 0 && distance > minBottomDistance)
                 {
                     minBottomDistance = distance;
                     curBottomIndex = i;
                 }
-                else if (distance > 0 && (distance < minUpperDistance))
+                else if (distance > 0 && distance < minUpperDistance)
                 {
                     minUpperDistance = distance;
                     curUpperIndex = i;
