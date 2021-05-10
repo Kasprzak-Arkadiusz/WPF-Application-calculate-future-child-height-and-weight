@@ -162,10 +162,18 @@
     <comment>AppWindow.xaml</comment>
   </data>
   <data name="CurrentHeight" xml:space="preserve">
+    <value>Obecny wzrost</value>
+    <comment>AppWindowViewModel.cs</comment>
+  </data>
+  <data name="CurrentHeightParam" xml:space="preserve">
     <value>CurrentHeight</value>
     <comment>Estimator.cs</comment>
   </data>
   <data name="CurrentWeight" xml:space="preserve">
+    <value>Obecna waga</value>
+    <comment>AppWindowViewModel.cs</comment>
+  </data>
+  <data name="CurrentWeightParam" xml:space="preserve">
     <value>CurrentWeight</value>
     <comment>Estimator.cs</comment>
   </data>
@@ -221,6 +229,10 @@
     <value>Przewidywany wzrost dziecka [cm]</value>
     <comment>AppWindow.xaml</comment>
   </data>
+  <data name="EstimatedValue" xml:space="preserve">
+    <value>Przewidywana wartość</value>
+    <comment>AppWindowViewModel.cs</comment>
+  </data>
   <data name="EstimatedWeightLabel" xml:space="preserve">
     <value>Przewidywana waga dziecka [kg]</value>
     <comment>AppWindow.xaml</comment>
@@ -252,6 +264,10 @@
   <data name="HeightFileLabel" xml:space="preserve">
     <value>Plik z danymi do siatki centylowej wzrostu:</value>
     <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="HeightPercentileGrid" xml:space="preserve">
+    <value>Siatka centylowa wzrostu</value>
+    <comment>AppWindowViewModel.cs</comment>
   </data>
   <data name="IncorrectData" xml:space="preserve">
     <value>Podano błędne dane.</value>
@@ -321,6 +337,10 @@
     <value>Wartość nie jest liczbą całkowitą.</value>
     <comment>OnlyNumbersValidationRule.cs</comment>
   </data>
+  <data name="ValuesShouldBeLesserThan" xml:space="preserve">
+    <value>Wartości powinny być mniejsze od </value>
+    <comment>FileDataValidator.cs</comment>
+  </data>
   <data name="ValuesShouldBeNonDecreasing" xml:space="preserve">
     <value>Wartości powinny być niemalejące. </value>
     <comment>FileDataValidator.cs</comment>
@@ -336,6 +356,10 @@
   <data name="WeightFileLabel" xml:space="preserve">
     <value>Plik z danymi do siatki centylowej wagi:</value>
     <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="WeightPercentileGrid" xml:space="preserve">
+    <value>Siatka centylowa wagi</value>
+    <comment>AppWindowViewModel.cs</comment>
   </data>
   <data name="Years" xml:space="preserve">
     <value> lat.</value>

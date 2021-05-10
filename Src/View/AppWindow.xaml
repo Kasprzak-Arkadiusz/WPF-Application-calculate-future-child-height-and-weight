@@ -72,15 +72,25 @@
             <ColumnDefinition Width="220*" />
         </Grid.ColumnDefinitions>
 
-        <Image Margin="25" VerticalAlignment="Top" Stretch="UniformToFill" />
+        <Canvas Grid.Column="0" Grid.Row="0" Margin="103,25,103,10">
+            <Image x:Name="PercentileGrid" Width="500" Height="500" />
+            <Button Content="{x:Static p:strings.WeightPercentileGrid}"
+                    HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="250" Canvas.Left="125"
+                    Canvas.Top="520"
+                    Command="{Binding DataContext.ChangeImageCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                    CommandParameter="{Binding ElementName=PercentileGrid}" />
+        </Canvas>
 
         <Canvas Grid.Row="0" Grid.Column="1" Margin="25,25,25,0" Width="250">
             <TextBlock>
-                <Run Foreground="Red" Text="*" /><Run Text=" " />
+                <Run Foreground="Red" Text="*" /><Run Text=" " /><Run Text=" " />
                 <Run Foreground="Black" Text="{x:Static p:strings.ChildGender}" />
             </TextBlock>
             <Canvas Canvas.Top="25">
-                <RadioButton GroupName="GenderChoice" Canvas.Top="5" Canvas.Left="2" Width="50">
+                <RadioButton GroupName="GenderChoice" Canvas.Top="5" Canvas.Left="2" Width="50"
+                             Command="{Binding DataContext.SetDefaultHeightFileByRadioButtonCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}"
+                             >
+
                     <WrapPanel>
                         <Image Source="/Resources/female-gender-icon.png" VerticalAlignment="Top"
                                HorizontalAlignment="Left" Width="15" Height="15" Margin="5, 2,0,0" />
@@ -89,7 +99,9 @@
             </Canvas>
             <Canvas Canvas.Top="50">
                 <RadioButton GroupName="GenderChoice" Canvas.Left="60" Canvas.Top="-20" Width="50"
-                             IsChecked="{Binding Path=Child.IsBoy, Mode=TwoWay}">
+                             IsChecked="{Binding Child.IsBoy, Mode=TwoWay}"
+                             Command="{Binding DataContext.SetDefaultHeightFileByRadioButtonCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}"
+                             >
                     <WrapPanel>
                         <Image Source="/Resources/male-gender-icon.png" VerticalAlignment="Top" Width="15"
                                Margin="5, 2,0,0" />
@@ -100,19 +112,17 @@
                 <Canvas.Top>
                     <system:Double>50</system:Double>
                 </Canvas.Top>
-                <Run Foreground="Red" Text="*" />
+                <Run Foreground="Red" Text="*" /><Run Text=" " />
                 <Run Foreground="Black" Text="{x:Static p:strings.ChildAge}" />
             </TextBlock>
             <TextBox x:Name="AgeTextBox" Canvas.Top="80" MaxLength="2" Height="25" FontSize="14"
                      VerticalContentAlignment="Center">
-                <TextBox.Text>
-                    <Binding Path="Child.Age" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True"
-                             ValidatesOnDataErrors="True">
-                        <Binding.ValidationRules>
-                            <global:OnlyNumbersValidationRule ValidatesOnTargetUpdated="True" />
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
+                <Binding Path="Child.Age" UpdateSourceTrigger="PropertyChanged" ValidatesOnExceptions="True"
+                         ValidatesOnDataErrors="True">
+                    <Binding.ValidationRules>
+                        <global:OnlyNumbersValidationRule ValidatesOnTargetUpdated="True" />
+                    </Binding.ValidationRules>
+                </Binding>
             </TextBox>
             <TextBlock Text="{x:Static p:strings.EnterChildAge}" FontSize="14" Foreground="gray"
                        IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="83">
@@ -131,19 +141,17 @@
                 <Canvas.Top>
                     <system:Double>105</system:Double>
                 </Canvas.Top>
-                <Run Foreground="Red" Text="*" />
+                <Run Foreground="Red" Text="*" /><Run Text=" " />
                 <Run Foreground="Black" Text="{x:Static p:strings.ChildHeight}" />
             </TextBlock>
             <TextBox x:Name="HeightTextBox" Canvas.Top="139" MaxLength="3" Height="25" FontSize="14"
                      VerticalContentAlignment="Center">
-                <TextBox.Text>
-                    <Binding Path="Child.CurrentHeight" UpdateSourceTrigger="PropertyChanged"
-                             ValidatesOnExceptions="True" ValidatesOnDataErrors="True">
-                        <Binding.ValidationRules>
-                            <global:OnlyNumbersValidationRule ValidatesOnTargetUpdated="True" />
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
+                <Binding Path="Child.CurrentHeight" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True">
+                    <Binding.ValidationRules>
+                        <global:OnlyNumbersValidationRule ValidatesOnTargetUpdated="True" />
+                    </Binding.ValidationRules>
+                </Binding>
             </TextBox>
             <TextBlock Text="{x:Static p:strings.EnterChildHeight}" FontSize="14" Foreground="gray"
                        IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="142">
@@ -162,19 +170,17 @@
                 <Canvas.Top>
                     <system:Double>160</system:Double>
                 </Canvas.Top>
-                <Run Foreground="Red" Text="*" />
+                <Run Foreground="Red" Text="*" /><Run Text=" " />
                 <Run Foreground="Black" Text="{x:Static p:strings.ChildWeight}" />
             </TextBlock>
             <TextBox x:Name="WeightTextBox" Canvas.Top="194" MaxLength="3" Height="25" FontSize="14"
                      VerticalContentAlignment="Center">
-                <TextBox.Text>
-                    <Binding Path="Child.CurrentWeight" UpdateSourceTrigger="PropertyChanged"
-                             ValidatesOnExceptions="True" ValidatesOnDataErrors="True">
-                        <Binding.ValidationRules>
-                            <global:OnlyNumbersValidationRule ValidatesOnTargetUpdated="True" />
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
+                <Binding Path="Child.CurrentWeight" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True">
+                    <Binding.ValidationRules>
+                        <global:OnlyNumbersValidationRule ValidatesOnTargetUpdated="True" />
+                    </Binding.ValidationRules>
+                </Binding>
             </TextBox>
             <TextBlock Text="{x:Static p:strings.EnterChildWeight}" FontSize="14" Foreground="gray"
                        IsHitTestVisible="False" Canvas.Left="5" Canvas.Top="197">
@@ -192,45 +198,33 @@
             <TextBlock Text="{x:Static p:strings.WeightFileLabel}" TextWrapping="WrapWithOverflow" Height="50"
                        Canvas.Top="225" />
             <TextBox x:Name="WeightFileTextBox" Canvas.Top="275" FontSize="14" IsReadOnly="True"
-                     TextWrapping="WrapWithOverflow" Height="60" TextAlignment="Justify" VerticalContentAlignment="Top">
-                <TextBox.Text>
-                    <Binding Path="FileDataLoader.WeightFileName" UpdateSourceTrigger="PropertyChanged" />
-                </TextBox.Text>
-            </TextBox>
+                     TextWrapping="WrapWithOverflow" Height="60" TextAlignment="Justify" VerticalContentAlignment="Top"
+                     Text="{Binding FileDataLoader.WeightFileName, UpdateSourceTrigger=PropertyChanged}" />
             <Button Content="{x:Static p:strings.Default}" Canvas.Top="345" FontSize="14" Canvas.Left="25" Width="80"
-                    Command="{Binding Path=DataContext.SetDefaultWeightFileCmd, UpdateSourceTrigger=PropertyChanged, 
-                        RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
-                    CommandParameter="{Binding ElementName=WeightFileTextBox}"
+                    Command="{Binding DataContext.SetDefaultWeightFileCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}"
                     HorizontalAlignment="Left" />
             <Button Content="{x:Static p:strings.Choose}" Canvas.Top="345" Canvas.Right="25"
                     Width="80" FontSize="14" HorizontalAlignment="Right"
-                    Command="{Binding Path=DataContext.SetCustomWeightFileCmd,  UpdateSourceTrigger=PropertyChanged, 
-                        RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                    Command="{Binding DataContext.SetCustomWeightFileCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}"
                     CommandParameter="{Binding ElementName=WeightFileTextBox}" />
             <TextBlock Text="{x:Static p:strings.HeightFileLabel}" TextWrapping="WrapWithOverflow" Height="50"
                        Canvas.Top="370" />
             <TextBox x:Name="HeightFileTextBox" Canvas.Top="420" FontSize="14" IsReadOnly="True"
-                     TextWrapping="WrapWithOverflow" Height="60" TextAlignment="Justify" VerticalContentAlignment="Top">
-                <TextBox.Text>
-                    <Binding Path="FileDataLoader.HeightFileName" UpdateSourceTrigger="PropertyChanged" />
-                </TextBox.Text>
-            </TextBox>
+                     TextWrapping="WrapWithOverflow" Height="60" TextAlignment="Justify" VerticalContentAlignment="Top"
+                     Text="{Binding FileDataLoader.HeightFileName, UpdateSourceTrigger=PropertyChanged}" />
             <Button Content="{x:Static p:strings.Default}" Canvas.Top="490"
                     FontSize="14" Canvas.Left="25" Width="80"
-                    Command="{Binding Path=DataContext.SetDefaultHeightFileCmd, UpdateSourceTrigger=PropertyChanged, 
-                        RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
-                    CommandParameter="{Binding ElementName=HeightFileTextBox}"
+                    Command="{Binding DataContext.SetDefaultHeightFileCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}"
                     HorizontalAlignment="Left" />
             <Button Content="{x:Static p:strings.Choose}" Canvas.Top="490" Canvas.Right="25"
                     Width="80" FontSize="14" HorizontalAlignment="Right"
-                    Command="{Binding Path=DataContext.SetCustomHeightFileCmd,  UpdateSourceTrigger=PropertyChanged, 
-                        RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                    Command="{Binding DataContext.SetCustomHeightFileCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}"
                     CommandParameter="{Binding ElementName=HeightFileTextBox}" />
             <TextBlock>
                 <Canvas.Top>
                     <system:Double>515</system:Double>
                 </Canvas.Top>
-                <Run Foreground="Red" Text="*" /><Run Text=" " />
+                <Run Foreground="Red" Text="*" /><Run Text=" " /><Run Text=" " />
                 <Run Foreground="Red" Text="{x:Static p:strings.Required}" />
             </TextBlock>
         </Canvas>
@@ -238,7 +232,7 @@
             <Label Content="{x:Static p:strings.EstimatedHeightLabel}" Width="300" />
             <TextBox Width="60" Height="30" HorizontalContentAlignment="Center" IsReadOnly="True" Canvas.Left="300">
                 <TextBox.Style>
-                    <Style TargetType="TextBox">
+                    <Style TargetType="{x:Type TextBox}">
                         <Setter Property="Text" Value="{Binding Child.EstimatedHeight}" />
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding Child.EstimatedHeight}" Value="0">
@@ -252,7 +246,7 @@
             <TextBox Width="60" Height="30" HorizontalContentAlignment="Center" IsReadOnly="True" Canvas.Left="300"
                      Canvas.Top="50">
                 <TextBox.Style>
-                    <Style TargetType="TextBox">
+                    <Style TargetType="{x:Type TextBox}">
                         <Setter Property="Text" Value="{Binding Child.EstimatedWeight}" />
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding Child.EstimatedWeight}" Value="0">
@@ -267,7 +261,8 @@
         <Button Content="{x:Static p:strings.EstimateButton}" Grid.Row="1" Grid.Column="1" Height="50"
                 Margin="30,48,0,0" FontSize="14" HorizontalAlignment="Left" Width="250"
                 VerticalAlignment="Top"
-                Command="{Binding Path=DataContext.EstimateCmd, 
-                      RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+                Command="{Binding DataContext.EstimateCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}}"
+                CommandParameter="{Binding ElementName=PercentileGrid}" />
+
     </Grid>
 </Window>

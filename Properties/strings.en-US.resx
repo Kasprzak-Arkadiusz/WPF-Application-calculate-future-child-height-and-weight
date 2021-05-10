@@ -162,10 +162,18 @@
     <comment>AppWindow.xaml</comment>
   </data>
   <data name="CurrentHeight" xml:space="preserve">
+    <value>Current height</value>
+    <comment>AppWindowViewModel.cs</comment>
+  </data>
+  <data name="CurrentHeightParam" xml:space="preserve">
     <value>CurrentHeight</value>
     <comment>Estimator.cs</comment>
   </data>
   <data name="CurrentWeight" xml:space="preserve">
+    <value>Current weight</value>
+    <comment>AppWindowViewModel.cs</comment>
+  </data>
+  <data name="CurrentWeightParam" xml:space="preserve">
     <value>CurrentWeight</value>
     <comment>Estimator.cs</comment>
   </data>
@@ -221,6 +229,10 @@
     <value>Estimated child's height [cm]</value>
     <comment>AppWindow.xaml</comment>
   </data>
+  <data name="EstimatedValue" xml:space="preserve">
+    <value>Estimated value</value>
+    <comment>AppWindowViewModel.cs</comment>
+  </data>
   <data name="EstimatedWeightLabel" xml:space="preserve">
     <value>Estimated child's weight [kg]</value>
     <comment>AppWindow.xaml</comment>
@@ -252,6 +264,10 @@
   <data name="HeightFileLabel" xml:space="preserve">
     <value>Data file for height percentile grid:</value>
     <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="HeightPercentileGrid" xml:space="preserve">
+    <value>Height percentile grid</value>
+    <comment>AppWindowViewModel.cs</comment>
   </data>
   <data name="IncorrectData" xml:space="preserve">
     <value>Data is incorrect.</value>
@@ -321,6 +337,10 @@
     <value> Value is not an integer</value>
     <comment>OnlyNumbersValidationRule.cs</comment>
   </data>
+  <data name="ValuesShouldBeLesserThan" xml:space="preserve">
+    <value>Values should be lesser than </value>
+    <comment>FileDataValidator.cs</comment>
+  </data>
   <data name="ValuesShouldBeNonDecreasing" xml:space="preserve">
     <value>The values ​​should be non-decreasing.</value>
     <comment>FileDataValidator.cs</comment>
@@ -336,6 +356,10 @@
   <data name="WeightFileLabel" xml:space="preserve">
     <value>Data file for weight percentile grid:</value>
     <comment>AppWindow.xaml</comment>
+  </data>
+  <data name="WeightPercentileGrid" xml:space="preserve">
+    <value>Weight percentile grid</value>
+    <comment>AppWindowViewModel.cs</comment>
   </data>
   <data name="Years" xml:space="preserve">
     <value> years.</value>

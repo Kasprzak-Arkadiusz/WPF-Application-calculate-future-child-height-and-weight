@@ -73,7 +73,9 @@ namespace ProjektIndywidualny.Model
                 throw new FileNotFoundException(str.FileNotFound + fileName);
             }
 
-            LoadData(formattedContent, out chart, out labels);
+            try { LoadData(formattedContent, out chart, out labels); }
+            catch (ArgumentException) { throw; }
+           
         }
 
         private static void LoadData(string[] lines, out Chart chart, out string[] labels)

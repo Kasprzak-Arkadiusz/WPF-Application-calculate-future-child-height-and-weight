@@ -6,19 +6,21 @@ namespace ProjektIndywidualny.Model
 {
     public static class Estimator
     {
-        public static int EstimateChildParameter(Point[,] plots, int currentParameter, int currentAge, int estimatedAge, string nameofParameter)
+        public static int EstimateChildParameter(Point[,] plots, int currentParameter, int currentAge, int estimatedAge,
+            string nameofParameter)
         {
             int curAgeIndex = FindIndexByAge(plots, currentAge);
             int estAgeIndex = FindIndexByAge(plots, estimatedAge);
 
+
             if (currentParameter < plots[0, curAgeIndex].Y)
             {
-                if (nameofParameter == str.CurrentWeight)
+                if (nameofParameter == nameof(Child.CurrentWeight))
                 {
                     throw new ArgumentException(str.BelowLowestPercentile + ": " + str.Weight);
                 }
 
-                if (nameofParameter == str.CurrentHeight)
+                if (nameofParameter == nameof(Child.CurrentHeight))
                 {
                     throw new ArgumentException(str.BelowLowestPercentile + ": " + str.Height);
                 }
@@ -26,12 +28,12 @@ namespace ProjektIndywidualny.Model
 
             if (currentParameter > plots[plots.GetLength(0) - 1, curAgeIndex].Y)
             {
-                if (nameofParameter == str.CurrentWeight)
+                if (nameofParameter == nameof(Child.CurrentWeight))
                 {
                     throw new ArgumentException(str.OverHighestPercentile + ": " + str.Weight);
                 }
 
-                if (nameofParameter == str.CurrentHeight)
+                if (nameofParameter == nameof(Child.CurrentHeight))
                 {
                     throw new ArgumentException(str.OverHighestPercentile + ": " + str.Height);
                 }

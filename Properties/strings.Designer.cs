@@ -160,7 +160,7 @@ namespace ProjektIndywidualny.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CurrentHeight.
+        ///   Looks up a localized string similar to Obecny wzrost.
         /// </summary>
         public static string CurrentHeight {
             get {
@@ -169,11 +169,29 @@ namespace ProjektIndywidualny.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CurrentWeight.
+        ///   Looks up a localized string similar to CurrentHeight.
+        /// </summary>
+        public static string CurrentHeightParam {
+            get {
+                return ResourceManager.GetString("CurrentHeightParam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obecna waga.
         /// </summary>
         public static string CurrentWeight {
             get {
                 return ResourceManager.GetString("CurrentWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CurrentWeight.
+        /// </summary>
+        public static string CurrentWeightParam {
+            get {
+                return ResourceManager.GetString("CurrentWeightParam", resourceCulture);
             }
         }
         
@@ -295,6 +313,15 @@ namespace ProjektIndywidualny.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Przewidywana wartość.
+        /// </summary>
+        public static string EstimatedValue {
+            get {
+                return ResourceManager.GetString("EstimatedValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Przewidywana waga dziecka [kg].
         /// </summary>
         public static string EstimatedWeightLabel {
@@ -363,6 +390,15 @@ namespace ProjektIndywidualny.Properties {
         public static string HeightFileLabel {
             get {
                 return ResourceManager.GetString("HeightFileLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Siatka centylowa wzrostu.
+        /// </summary>
+        public static string HeightPercentileGrid {
+            get {
+                return ResourceManager.GetString("HeightPercentileGrid", resourceCulture);
             }
         }
         
@@ -520,6 +556,15 @@ namespace ProjektIndywidualny.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wartości powinny być mniejsze od .
+        /// </summary>
+        public static string ValuesShouldBeLesserThan {
+            get {
+                return ResourceManager.GetString("ValuesShouldBeLesserThan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wartości powinny być niemalejące. .
         /// </summary>
         public static string ValuesShouldBeNonDecreasing {
@@ -552,6 +597,15 @@ namespace ProjektIndywidualny.Properties {
         public static string WeightFileLabel {
             get {
                 return ResourceManager.GetString("WeightFileLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Siatka centylowa wagi.
+        /// </summary>
+        public static string WeightPercentileGrid {
+            get {
+                return ResourceManager.GetString("WeightPercentileGrid", resourceCulture);
             }
         }
         

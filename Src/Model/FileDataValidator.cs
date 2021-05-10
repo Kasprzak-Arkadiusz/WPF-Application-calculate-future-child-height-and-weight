@@ -8,11 +8,21 @@ namespace ProjektIndywidualny.Model
     {
         public static void CheckIfFileDataAreCorrect(ref Chart chart)
         {
-            AreAnyDataInFile(chart.Plots);
-            IsAgeIncreasing(chart.Plots);
-            AreAllValuesPositive(chart.Plots);
-            AreValuesNonDecreasing(chart.Plots);
-            ArePlotsOverlapping(chart.Plots);
+            Point[,] plots = chart.Plots;
+            AreAnyDataInFile(plots);
+            IsAgeIncreasing(plots);
+            AreAllValuesPositive(plots);
+            AreValuesNonDecreasing(plots);
+            AreValuesLesserThan(plots, 250);
+            ArePlotsOverlapping(plots);
+        }
+
+        private static void AreAnyDataInFile(Point[,] plots)
+        {
+            if (plots.GetLength(0) <= 1 || plots.GetLength(1) == 0)
+            {
+                throw new ArgumentException(str.MissingValueData);
+            }
         }
 
         private static void IsAgeIncreasing(Point[,] plots)
@@ -24,21 +34,6 @@ namespace ProjektIndywidualny.Model
                 {
                     throw new ArgumentException(str.AgeShouldBeIncreasing + str.Label + i + ". " + str.Line +
                                                 (j - 1) + str.And + str.Line + j);
-                }
-            }
-        }
-
-        private static void AreValuesNonDecreasing(Point[,] plots)
-        {
-            for (int i = 0; i < plots.GetLength(0); i++)
-            {
-                for (int j = 1; j < plots.GetLength(1); j++)
-                {
-                    if (plots[i, j].Y < plots[i, j - 1].Y)
-                    {
-                        throw new ArgumentException(str.ValuesShouldBeNonDecreasing + str.Label + i +
-                                                    ". " + str.Line + (j - 1) + str.And + str.Line + j);
-                    }
                 }
             }
         }
@@ -58,11 +53,33 @@ namespace ProjektIndywidualny.Model
             }
         }
 
-        private static void AreAnyDataInFile(Point[,] plots)
+        private static void AreValuesNonDecreasing(Point[,] plots)
         {
-            if (plots.GetLength(0) <= 1 || plots.GetLength(1) == 0)
+            for (int i = 0; i < plots.GetLength(0); i++)
             {
-                throw new ArgumentException(str.MissingValueData);
+                for (int j = 1; j < plots.GetLength(1); j++)
+                {
+                    if (plots[i, j].Y < plots[i, j - 1].Y)
+                    {
+                        throw new ArgumentException(str.ValuesShouldBeNonDecreasing + str.Label + i +
+                                                    ". " + str.Line + (j - 1) + str.And + str.Line + j);
+                    }
+                }
+            }
+        }
+
+        private static void AreValuesLesserThan(Point[,] plots, int maxValue)
+        {
+            for (int i = 0; i < plots.GetLength(0); i++)
+            {
+                for (int j = plots.GetLength(1) - 1; j > 0; j--)
+                {
+                    if (plots[i,j].Y > maxValue)
+                    {
+                        throw new ArgumentException(str.ValuesShouldBeLesserThan + maxValue + str.Label + i +
+                                                    ". " + str.Line + j);
+                    }
+                }
             }
         }
 
