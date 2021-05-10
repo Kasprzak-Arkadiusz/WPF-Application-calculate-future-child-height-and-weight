@@ -9,10 +9,10 @@ public class OnlyNumbersValidationRule : ValidationRule
     {
         var result = new ValidationResult(true, null);
 
-        const string NumberPattern = @"^[0-9]+$";
-        Regex rgx = new Regex(NumberPattern);
+        const string numberPattern = @"^[0-9]+$";
+        Regex rgx = new Regex(numberPattern);
 
-        if (rgx.IsMatch(value.ToString()) == false )
+        if (value != null && rgx.IsMatch(value.ToString()) == false )
         {
             result = new ValidationResult(false, str.ValueIsNotInt);
         }

@@ -24,7 +24,7 @@ namespace ProjektIndywidualny.Model
 
         private void AddErrors(string propertyName, IList<string> errors)
         {
-            var changed = false;
+            bool changed = false;
             if (!_errors.ContainsKey(propertyName))
             {
                 _errors.Add(propertyName, new List<string>());

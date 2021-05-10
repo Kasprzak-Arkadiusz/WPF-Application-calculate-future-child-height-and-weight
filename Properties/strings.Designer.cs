@@ -169,29 +169,11 @@ namespace ProjektIndywidualny.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CurrentHeight.
-        /// </summary>
-        public static string CurrentHeightParam {
-            get {
-                return ResourceManager.GetString("CurrentHeightParam", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Obecna waga.
         /// </summary>
         public static string CurrentWeight {
             get {
                 return ResourceManager.GetString("CurrentWeight", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to CurrentWeight.
-        /// </summary>
-        public static string CurrentWeightParam {
-            get {
-                return ResourceManager.GetString("CurrentWeightParam", resourceCulture);
             }
         }
         

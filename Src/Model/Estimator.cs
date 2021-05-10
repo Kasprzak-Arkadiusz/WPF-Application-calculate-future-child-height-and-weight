@@ -15,27 +15,23 @@ namespace ProjektIndywidualny.Model
 
             if (currentParameter < plots[0, curAgeIndex].Y)
             {
-                if (nameofParameter == nameof(Child.CurrentWeight))
+                switch (nameofParameter)
                 {
-                    throw new ArgumentException(str.BelowLowestPercentile + ": " + str.Weight);
-                }
-
-                if (nameofParameter == nameof(Child.CurrentHeight))
-                {
-                    throw new ArgumentException(str.BelowLowestPercentile + ": " + str.Height);
+                    case nameof(Child.CurrentWeight):
+                        throw new ArgumentException(str.BelowLowestPercentile + ": " + str.Weight);
+                    case nameof(Child.CurrentHeight):
+                        throw new ArgumentException(str.BelowLowestPercentile + ": " + str.Height);
                 }
             }
 
             if (currentParameter > plots[plots.GetLength(0) - 1, curAgeIndex].Y)
             {
-                if (nameofParameter == nameof(Child.CurrentWeight))
+                switch (nameofParameter)
                 {
-                    throw new ArgumentException(str.OverHighestPercentile + ": " + str.Weight);
-                }
-
-                if (nameofParameter == nameof(Child.CurrentHeight))
-                {
-                    throw new ArgumentException(str.OverHighestPercentile + ": " + str.Height);
+                    case nameof(Child.CurrentWeight):
+                        throw new ArgumentException(str.OverHighestPercentile + ": " + str.Weight);
+                    case nameof(Child.CurrentHeight):
+                        throw new ArgumentException(str.OverHighestPercentile + ": " + str.Height);
                 }
             }
 
@@ -47,11 +43,9 @@ namespace ProjektIndywidualny.Model
             {
                 return plots[curBottomIndex, estAgeIndex].Y;
             }
-            else
-            {
-                int difference = plots[curUpperIndex, curAgeIndex].Y - plots[curBottomIndex, curAgeIndex].Y;
-                return plots[curBottomIndex, estAgeIndex].Y + difference;
-            }
+
+            int difference = plots[curUpperIndex, curAgeIndex].Y - plots[curBottomIndex, curAgeIndex].Y;
+            return plots[curBottomIndex, estAgeIndex].Y + difference;
         }
 
         private static int FindIndexByAge(Point[,] plots, int age)

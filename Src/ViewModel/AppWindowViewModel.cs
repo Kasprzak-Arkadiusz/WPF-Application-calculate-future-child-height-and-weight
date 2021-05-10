@@ -3,7 +3,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
@@ -114,7 +113,7 @@ namespace ProjektIndywidualny.ViewModel
             }
         }
 
-        private bool? SetCustomFile(TextBox box)
+        private static bool? SetCustomFile(TextBox box)
         {
             Assembly asm = Assembly.GetExecutingAssembly();
             string path = Path.GetDirectoryName(asm.Location);
@@ -189,7 +188,7 @@ namespace ProjektIndywidualny.ViewModel
             _isHeightGridDisplayed = true;
         }
 
-        private BitmapImage BitmapToImageSource(Bitmap bitmap)
+        private static BitmapImage BitmapToImageSource(Bitmap bitmap)
         {
             using (MemoryStream memory = new MemoryStream())
             {
@@ -210,11 +209,11 @@ namespace ProjektIndywidualny.ViewModel
             Plot plt = new Plot((int) width, (int) height);
             for (int i = 0; i < GrowthChart.HeightChart.Plots.GetLength(0); i++)
             {
-                var arguments = Enumerable.Range(0, GrowthChart.HeightChart.Plots.GetLength(1))
+                double[] arguments = Enumerable.Range(0, GrowthChart.HeightChart.Plots.GetLength(1))
                     .Select(x => (double) GrowthChart.HeightChart.Plots[i, x].X)
                     .ToArray();
 
-                var values = Enumerable.Range(0, GrowthChart.HeightChart.Plots.GetLength(1))
+                double[] values = Enumerable.Range(0, GrowthChart.HeightChart.Plots.GetLength(1))
                     .Select(x => (double) GrowthChart.HeightChart.Plots[i, x].Y)
                     .ToArray();
 
@@ -241,11 +240,11 @@ namespace ProjektIndywidualny.ViewModel
             Plot plt = new Plot((int) width, (int) height);
             for (int i = 0; i < GrowthChart.WeightChart.Plots.GetLength(0); i++)
             {
-                var arguments = Enumerable.Range(0, GrowthChart.WeightChart.Plots.GetLength(1))
+                double[] arguments = Enumerable.Range(0, GrowthChart.WeightChart.Plots.GetLength(1))
                     .Select(x => (double) GrowthChart.WeightChart.Plots[i, x].X)
                     .ToArray();
 
-                var values = Enumerable.Range(0, GrowthChart.WeightChart.Plots.GetLength(1))
+                double[] values = Enumerable.Range(0, GrowthChart.WeightChart.Plots.GetLength(1))
                     .Select(x => (double) GrowthChart.WeightChart.Plots[i, x].Y)
                     .ToArray();
 

@@ -44,23 +44,23 @@ namespace ProjektIndywidualny.Model
         }
 
 
-        public void LoadDefaultData(string fileName, out Chart chart, out string[] labels)
+        public static void LoadDefaultData(string fileName, out Chart chart, out string[] labels)
         {
-            var resourceName = "ProjektIndywidualny.Data." + fileName;
+            string resourceName = "ProjektIndywidualny.Data." + fileName;
             Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName);
             StreamReader reader = new StreamReader(stream);
 
-            var content = reader.ReadToEnd();
+            string content = reader.ReadToEnd();
             string[] formattedContent = ConvertStringToArray(content);
             LoadData(formattedContent, out chart, out labels);
         }
 
-        private string[] ConvertStringToArray(string content)
+        private static string[] ConvertStringToArray(string content)
         {
             return content.Split(new char[] {'\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
         }
 
-        public void LoadCustomData(string fileName, out Chart chart, out string[] labels)
+        public static void LoadCustomData(string fileName, out Chart chart, out string[] labels)
         {
             string[] formattedContent;
 

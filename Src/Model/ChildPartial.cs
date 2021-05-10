@@ -13,11 +13,14 @@ namespace ProjektIndywidualny.Model
                 switch (columnName)
                 {
                     case nameof(Age):
-                        if (Age < 3 || Age > 17)
+                        const int minAge = 3;
+                        const int maxAge = 17;
+                        if (Age < minAge || Age > maxAge)
                         {
-                            AddError(nameof(Age), str.AgeIsNotInRange + str.From + "3" + str.To + "17.");
+                            AddError(nameof(Age), str.AgeIsNotInRange + str.From + minAge + str.To + maxAge + ".");
                             hasError = true;
                         }
+
                         if (!hasError) ClearErrors(nameof(Age));
                         break;
                     case nameof(CurrentHeight):
@@ -29,6 +32,7 @@ namespace ProjektIndywidualny.Model
                 return string.Empty;
             }
         }
+
         public string Error { get; }
     }
 }

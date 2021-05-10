@@ -88,9 +88,7 @@
             </TextBlock>
             <Canvas Canvas.Top="25">
                 <RadioButton GroupName="GenderChoice" Canvas.Top="5" Canvas.Left="2" Width="50"
-                             Command="{Binding DataContext.SetDefaultHeightFileByRadioButtonCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}"
-                             >
-
+                             Command="{Binding DataContext.SetDefaultHeightFileByRadioButtonCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}">
                     <WrapPanel>
                         <Image Source="/Resources/female-gender-icon.png" VerticalAlignment="Top"
                                HorizontalAlignment="Left" Width="15" Height="15" Margin="5, 2,0,0" />
@@ -100,8 +98,7 @@
             <Canvas Canvas.Top="50">
                 <RadioButton GroupName="GenderChoice" Canvas.Left="60" Canvas.Top="-20" Width="50"
                              IsChecked="{Binding Child.IsBoy, Mode=TwoWay}"
-                             Command="{Binding DataContext.SetDefaultHeightFileByRadioButtonCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}"
-                             >
+                             Command="{Binding DataContext.SetDefaultHeightFileByRadioButtonCmd, RelativeSource={RelativeSource AncestorType={x:Type Window}, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}">
                     <WrapPanel>
                         <Image Source="/Resources/male-gender-icon.png" VerticalAlignment="Top" Width="15"
                                Margin="5, 2,0,0" />

@@ -165,17 +165,9 @@
     <value>Obecny wzrost</value>
     <comment>AppWindowViewModel.cs</comment>
   </data>
-  <data name="CurrentHeightParam" xml:space="preserve">
-    <value>CurrentHeight</value>
-    <comment>Estimator.cs</comment>
-  </data>
   <data name="CurrentWeight" xml:space="preserve">
     <value>Obecna waga</value>
     <comment>AppWindowViewModel.cs</comment>
-  </data>
-  <data name="CurrentWeightParam" xml:space="preserve">
-    <value>CurrentWeight</value>
-    <comment>Estimator.cs</comment>
   </data>
   <data name="Default" xml:space="preserve">
     <value>Domyślny</value>
