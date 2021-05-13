@@ -81,14 +81,28 @@ namespace ProjektIndywidualny.Model
         private static void LoadData(string[] lines, out Chart chart, out string[] labels)
         {
             string[] stringSeparator = {"|", " ", "\t"};
+
+            if (lines.Length == 0)
+            {
+                throw new ArgumentException(str.FileIsEmpty);
+            }
             labels = lines[0].Split(stringSeparator, StringSplitOptions.RemoveEmptyEntries);
+
             int numberOfLabels = labels.Length;
+
+             
+
             int numberOfLines = lines.Length;
             chart = new Chart(numberOfLabels, numberOfLines - 1);
 
             for (int i = 1; i < numberOfLines; i++)
             {
                 string[] tokens = lines[i].Split(stringSeparator, StringSplitOptions.RemoveEmptyEntries);
+                if (tokens.Length - 1 != numberOfLabels)
+                {
+                    throw new ArgumentException("Liczba danych nie jest równa liczbie etykiet");
+                }
+
                 if (!double.TryParse(tokens[0], out double tempAge))
                 {
                     throw new ArgumentException(str.Given + str.Age + str.IsNotAnInt + str.Line + i);
@@ -101,7 +115,7 @@ namespace ProjektIndywidualny.Model
                     if (!double.TryParse(tokens[j + 1], out double tempValue))
                     {
                         throw new ArgumentException(
-                            str.Given + str.Age + str.IsNotAnInt + str.Line + i + ". " + str.Label + labels[j]);
+                            str.Given + str.Value + str.IsNotAnInt + str.Line + i + ". " + str.Label + labels[j]);
                     }
 
                     chart.Plots[j, i - 1] = new Point(age, (int) tempValue);

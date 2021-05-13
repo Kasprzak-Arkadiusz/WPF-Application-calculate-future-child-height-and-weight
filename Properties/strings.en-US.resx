@@ -233,6 +233,10 @@
     <value>Field </value>
     <comment>Global</comment>
   </data>
+  <data name="FileIsEmpty" xml:space="preserve">
+    <value>File is empty.</value>
+    <comment>FileDataLoader.cs</comment>
+  </data>
   <data name="FileNotFound" xml:space="preserve">
     <value>File not found:  </value>
     <comment>FileDataLoader.cs</comment>
@@ -288,10 +292,6 @@
   <data name="MissingAgeData" xml:space="preserve">
     <value>Age data is missing: </value>
     <comment>Estimator.cs</comment>
-  </data>
-  <data name="MissingValueData" xml:space="preserve">
-    <value>Missing data in file. </value>
-    <comment>FileDataValidator.cs</comment>
   </data>
   <data name="OverHighestPercentile" xml:space="preserve">
     <value>The parameter value is over the highest percentile</value>

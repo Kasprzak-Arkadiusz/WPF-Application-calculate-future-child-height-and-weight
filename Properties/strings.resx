@@ -233,6 +233,10 @@
     <value>Pole </value>
     <comment>Global</comment>
   </data>
+  <data name="FileIsEmpty" xml:space="preserve">
+    <value>Plik jest pusty.</value>
+    <comment>FileDataLoader.cs</comment>
+  </data>
   <data name="FileNotFound" xml:space="preserve">
     <value>Nie znaleziono pliku: </value>
     <comment>FileDataLoader.cs</comment>
@@ -288,10 +292,6 @@
   <data name="MissingAgeData" xml:space="preserve">
     <value>W pliku brakuje danych dla wieku.</value>
     <comment>Estimator.cs</comment>
-  </data>
-  <data name="MissingValueData" xml:space="preserve">
-    <value>W pliku nie podano danych. </value>
-    <comment>FileDataValidator.cs</comment>
   </data>
   <data name="OverHighestPercentile" xml:space="preserve">
     <value>Wartość parametru znajduje się powyżej najwyższego centylu</value>

@@ -322,6 +322,15 @@ namespace ProjektIndywidualny.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Plik jest pusty..
+        /// </summary>
+        public static string FileIsEmpty {
+            get {
+                return ResourceManager.GetString("FileIsEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nie znaleziono pliku: .
         /// </summary>
         public static string FileNotFound {
@@ -444,15 +453,6 @@ namespace ProjektIndywidualny.Properties {
         public static string MissingAgeData {
             get {
                 return ResourceManager.GetString("MissingAgeData", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to W pliku nie podano danych. .
-        /// </summary>
-        public static string MissingValueData {
-            get {
-                return ResourceManager.GetString("MissingValueData", resourceCulture);
             }
         }
         

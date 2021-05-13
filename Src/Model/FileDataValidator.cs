@@ -9,20 +9,11 @@ namespace ProjektIndywidualny.Model
         public static void CheckIfFileDataAreCorrect(ref Chart chart)
         {
             Point[,] plots = chart.Plots;
-            AreAnyDataInFile(plots);
             IsAgeIncreasing(plots);
             AreAllValuesPositive(plots);
             AreValuesNonDecreasing(plots);
             AreValuesLesserThan(plots, 250);
             ArePlotsOverlapping(plots);
-        }
-
-        private static void AreAnyDataInFile(Point[,] plots)
-        {
-            if (plots.GetLength(0) <= 1 || plots.GetLength(1) == 0)
-            {
-                throw new ArgumentException(str.MissingValueData);
-            }
         }
 
         private static void IsAgeIncreasing(Point[,] plots)
