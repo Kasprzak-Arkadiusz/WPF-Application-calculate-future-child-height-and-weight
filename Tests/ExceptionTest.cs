@@ -11,14 +11,12 @@ namespace ProjektIndywidualny.Tests
     {
         private Child Child { get; set; }
         private GrowthChart GrowthChart { get; set; }
-        private FileDataLoader DataLoader { get; set; }
 
         [SetUp]
         public void Initialize()
         {
             Child = new Child();
             GrowthChart = new GrowthChart();
-            DataLoader = new FileDataLoader();
         }
 
         #region Estimator.cs
@@ -69,7 +67,7 @@ namespace ProjektIndywidualny.Tests
             string fileName = "This file doesn't exist"; 
 
             Assert.That(
-                () => FileDataLoader.LoadCustomData(fileName, out Chart chart, out string[] labels),
+                () => FileDataLoader.LoadCustomData(fileName, out Chart _, out string[] _),
                 Throws.Exception
                     .TypeOf<FileNotFoundException>()
                     .With.Property("Message")
@@ -82,7 +80,7 @@ namespace ProjektIndywidualny.Tests
             string fileName = "EmptyFile.txt"; 
                 
             Assert.That(
-                () => FileDataLoader.LoadDefaultData(fileName, out Chart chart, out string[] labels),
+                () => FileDataLoader.LoadDefaultData(fileName, out Chart _, out string[] _),
                 Throws.Exception
                     .TypeOf<ArgumentException>()
                     .With.Property("Message")

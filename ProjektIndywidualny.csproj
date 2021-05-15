@@ -93,6 +93,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Tests\ExceptionTest.cs" />
+    <Compile Include="Tests\LogicTest.cs" />
     <Page Include="Src\View\AlertWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,7 +143,7 @@
     <Compile Include="Src\Model\FileDataValidator.cs" />
     <Compile Include="Src\Model\FileDataLoader.cs" />
     <Compile Include="Src\Model\GrowthChart.cs" />
-    <Compile Include="Src\Model\OnlyNumbersValidationRule.cs" />
+    <Compile Include="Src\Model\OnlyPositiveIntsValidationRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Controls;
 using str = ProjektIndywidualny.Properties.strings;
 
-public class OnlyNumbersValidationRule : ValidationRule
+public class OnlyPositiveIntsValidationRule : ValidationRule
 {
     public override ValidationResult Validate(object value, CultureInfo cultureInfo)
     {
