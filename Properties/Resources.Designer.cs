@@ -123,18 +123,17 @@ namespace ProjektIndywidualny.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to   | c3 | c10 | c25 | c50 | c75 | c90 | c97
-        ///3 | 89 | 92 | 94 | 97 | 99 | 101 | 104 
-        ///4 | 96 | 98 | 101 | 104 | 106 | 109 | 111
-        ///5 | 102 | 105 | 107 | 111 | 114 | 116 | 119
-        ///6 | 108 | 111 | 114 | 117 | 120 | 124 | 127
-        ///7 | 113 | 116 | 120 | 123 | 127 | 130 | 133
-        ///8 | 118 | 122 | 125 | 130 | 133 | 137 | 140
-        ///9 | 124 | 127 | 131 | 135 | 140 | 143 | 147
+        ///   Looks up a localized string similar to     | c3  | c10 | c25 | c50 | c75 | c90 | c97
+        ///3   | 89  | 92  | 94  | 97  | 99 | 101 | 104 
+        ///4   | 96  | 98  | 101 | 104 | 106 | 109 | 111
+        ///5   | 102 | 105 | 107 | 111 | 114 | 116 | 119
+        ///6   | 108 | 111 | 114 | 117 | 120 | 124 | 127
+        ///7   | 113 | 116 | 120 | 123 | 127 | 130 | 133
+        ///8   | 118 | 122 | 125 | 130 | 133 | 137 | 140
+        ///9   | 124 | 127 | 131 | 135 | 140 | 143 | 147
         ///10	| 128 | 132 | 136 | 141 | 145 | 149 | 153
         ///11	| 134 | 139 | 142 | 147 | 152 | 157 | 160
-        ///12	| 141 | 145 | 149 | 154 | 158 | 162 | 167
-        ///13	| 147 | 151 | 155  [rest of string was truncated]&quot;;.
+        ///12	| 141 | 145 | 149 | 154 | 158 | 162 | 167 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DefaultGirlHeightGrowthChart {
             get {
@@ -171,6 +170,16 @@ namespace ProjektIndywidualny.Properties {
             get {
                 object obj = ResourceManager.GetObject("female_gender_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon main_icon {
+            get {
+                object obj = ResourceManager.GetObject("main_icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

@@ -9,6 +9,7 @@
     xmlns:viewModel="clr-namespace:ProjektIndywidualny.ViewModel"
     x:Class="ProjektIndywidualny.View.MainWindow"
     Title="{x:Static p:strings.Title}"
+    Icon="/Resources/main-icon.ico"
     mc:Ignorable="d"
     MinHeight="768" MinWidth="1024"
     Height="768" Width="1024"

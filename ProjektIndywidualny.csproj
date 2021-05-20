@@ -9,7 +9,7 @@
     <ProjectGuid>{150D2A29-5C2B-4931-99A1-CDCE84415AC0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ProjektIndywidualny</RootNamespace>
-    <AssemblyName>ProjektIndywidualny</AssemblyName>
+    <AssemblyName>Child height &amp; weight calculator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -17,6 +17,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -31,8 +33,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,8 +54,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>main-icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework, Version=3.13.2.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
@@ -218,6 +217,8 @@
     <Resource Include="Resources\alert-image.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="main-icon.ico" />
+    <Resource Include="Resources\main-icon.ico" />
     <EmbeddedResource Include="Data\EmptyFile.txt" />
     <Resource Include="Src\View\alert-image.png" />
     <Resource Include="Src\View\alert-icon.ico" />
