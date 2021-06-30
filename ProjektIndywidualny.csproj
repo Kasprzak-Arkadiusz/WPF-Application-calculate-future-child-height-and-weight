@@ -217,6 +217,8 @@
     <Resource Include="Resources\alert-image.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\ExampleDataFile.png" />
+    <Resource Include="images\MainWindow.png" />
     <Resource Include="main-icon.ico" />
     <Resource Include="Resources\main-icon.ico" />
     <EmbeddedResource Include="Data\EmptyFile.txt" />
